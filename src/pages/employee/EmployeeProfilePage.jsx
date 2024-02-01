@@ -1,5 +1,5 @@
 import React from "react";
-import EmployeeProfile from "../../components/empolyee/employeeProfile";
+import EmployeeProfile from "../../components/empolyee/EmployeeProfile";
 import EmpSideBar from './EmpSideBar'
 
 function EmployeeProfilePage() {
