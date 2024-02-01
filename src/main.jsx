@@ -12,12 +12,10 @@ const theme = createTheme();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <GoogleOAuthProvider clientId={googleClientID} >
-    <React.StrictMode>
       <ApiProvider>
         <ThemeProvider theme={theme}>
           <App />
         </ThemeProvider>
       </ApiProvider>
-    </React.StrictMode>
   </GoogleOAuthProvider>
 )
