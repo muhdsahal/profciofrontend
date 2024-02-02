@@ -76,11 +76,16 @@ function EmployeeDetails() {
       <section className="container flex-grow mx-auto max-w-[1200px] border-b py-5 lg:grid lg:grid-cols-2 lg:py-10">
 
         <div className="container mx-auto px-4">
+        {employeeData.profile_photo ? (
           <img
-            src={employeeData.profile_photo}
+            src={`${base_url}/${employeeData.profile_photo}`}
             alt="card-image"
             className="w-full h-100 object-cover"
           />
+          ): (
+            <img alt="img" src={blankImage} 
+            className="w-full h-100 object-cover" />
+          )}
         </div>
 
         <div className="mx-auto px-5 lg:px-5">
@@ -109,7 +114,6 @@ function EmployeeDetails() {
           </h2>
           <p className="pt-3 text-xs font-bold lg:pt-0">
             Description : {employeeData.description}
-            {/* <ChatIcon  className='ml-36 ' style={{fontSize:"50px",color:'green'}}/> */}
           </p>
           <p className="pt-3 text-xs font-bold lg:pt-0">
             <i onClick={(e) => HandleChat(employeeData.id)}>
@@ -143,7 +147,7 @@ function EmployeeDetails() {
               <ListItem>
                 <ListItemPrefix>
                   {review.userDetails.profile_photo ? (
-                    <img className='rounded-full w-12' src={`${base_url}${review.userDetails.profile_photo}`} />
+                    <img className='rounded-full w-12' src={`${base_url}/${review.userDetails.profile_photo}`} />
                   ) : (
                     <img alt="img" src={blankImage} className='rounded-full w-12' />
                   )}

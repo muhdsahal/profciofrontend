@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Button, Input} from "@material-tailwind/react";
+import { Button, Input } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
-import { EmployeeListingURL, ServiceListURL } from "../../constants/constants";
+import { EmployeeListingURL, ServiceListURL, base_url } from "../../constants/constants";
 import CitiesData from "../../components/empolyee/locations.json"
 import { jwtDecode } from "jwt-decode";
-import { toast,ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import blankImage from '../../assets/blankprofile.png'
+
 
 function EmployeeList() {
   const [employees, setEmployees] = useState([]);
@@ -14,11 +16,11 @@ function EmployeeList() {
   const [selectedCity, setSelectedCity] = useState("");
   const [services, setServices] = useState([]);
   const [selectedService, setSelectedService] = useState("");
-  const [userId , setUserId] = useState('');
+  const [userId, setUserId] = useState('');
   const token = localStorage.getItem('token')
   const [isLoggedIn, setisLoggedIn] = useState(false)
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     if (token) {
       const decode = jwtDecode(token);
@@ -32,13 +34,13 @@ function EmployeeList() {
     value: city.City,
     label: city.City,
   }));
-  
+
 
   useEffect(() => {
     axios
       .get(EmployeeListingURL)
       .then((response) => {
-        setEmployees(response.data || []); 
+        setEmployees(response.data || []);
       })
       .catch((error) => {
         console.error("Error fetching employee data:", error);
@@ -47,7 +49,7 @@ function EmployeeList() {
     axios
       .get(ServiceListURL)
       .then((response) => {
-        setServices(response.data || []); 
+        setServices(response.data || []);
       })
       .catch((error) => {
         console.error("Error fetching service data:", error);
@@ -60,11 +62,11 @@ function EmployeeList() {
 
   const objectToFormData = (data) => {
     const formData = new FormData();
-  
+
     Object.entries(data).forEach(([key, value]) => {
       formData.append(key, value);
     });
-  
+
     return formData;
   };
 
@@ -95,83 +97,90 @@ function EmployeeList() {
           employee.work.toLowerCase().includes(searchQuery.toLowerCase())) ||
         (employee.charge && String(employee.charge).includes(searchQuery));
       const isActive = employee.is_active === true;
-  
+
       return cityMatches && serviceMatches && searchMatches && isActive;
     });
     setFilteredEmployees(filtered);
   };
 
   return (
-    <div style={{backgroundColor:'black',minHeight:'600px' }}>
+    <div style={{ backgroundColor: 'black', minHeight: '600px' }}>
       <ToastContainer />
-      <h1  className="text-center text-green-400  text-4xl font-semibold mb-4">
+      <h1 className="text-center text-green-400  text-4xl font-semibold mb-4">
         {filteredEmployees.length > 0 ? "Employees" : "No Employees Found"}
       </h1>
       <div className="mt-12 flex flex-col items-center justify-center w-full md:w-auto ">
-      <div style={{backgroundColor:"white"}} className="mt-4 mb-6 w-full md:w-80 h-10 ">
-        <Input label="Search" value={searchQuery} onChange={handleSearch}  style={{backgroundColor:"white"}} />
+        <div style={{ backgroundColor: "white" }} className="mt-4 mb-6 w-full md:w-80 h-10 ">
+          <Input label="Search" value={searchQuery} onChange={handleSearch} style={{ backgroundColor: "white" }} />
+        </div>
+        <div className="flex gap-4 md:w-86 h-10">
+          <select className="border-[1px] border-[#747676]"
+            label="City"
+            value={selectedCity}
+            onChange={handleCityChange}
+          >
+            <option value="">Select Your Location</option>
+            {cityOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          <select className="border-[1px] border-[#747676]"
+            label="Service"
+            value={selectedService}
+            onChange={handleServiceChange}
+          >
+            <option value="" disabled>Select a service</option>
+            {Object.values(services).map((service) => (
+              <option key={service.id} value={service.name}>
+                {service.name}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
-      <div className="flex gap-4 md:w-86 h-10">
-        <select className="border-[1px] border-[#747676]"
-          label="City"
-          value={selectedCity}
-          onChange={handleCityChange}
-        >
-          <option value="">Select Your Location</option>
-          {cityOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-        <select className="border-[1px] border-[#747676]"
-          label="Service"
-          value={selectedService}
-          onChange={handleServiceChange}
-        >
-          <option value="" disabled>Select a service</option>
-          {Object.values(services).map((service) => (
-            <option key={service.id} value={service.name}>
-              {service.name}
-            </option>
-          ))}
-        </select>
-      </div>
-    </div>
-    <br />
-      <div  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
+      <br />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
         {filteredEmployees.map((employee) => (
           <div
             key={employee.id}
             className="max-w-xs bg-white border rounded-lg overflow-hidden shadow-lg"
           >
-            <img
-              src={employee.profile_photo}
-              alt={`Profile photo of ${employee.username}`}
-              className="w-full h-48 object-cover"
-            />
+            {employee.profile_photo ? (
+
+              <img
+                src={`${base_url}/${employee.profile_photo}`}
+                alt="Profile photo"
+                className="w-full h-48 object-cover"
+              />
+            ) : (
+              <img src={blankImage} alt="Profile photo"
+                className="w-full h-48 object-cover" />
+            )}
+            
             <div >
               <h4 className="text-xl font-semibold mb-2">{employee.username}</h4>
               <h4 className="text-xl font-semibold mb-2">{employee.work}</h4>
               <p className="text-gray-700 mb-2">₹{employee.charge}</p>
               <p className="text-gray-600">{employee.place}</p>
               <div className="mt-4">
-                  <Button
+                <Button
                   color="blue"
                   ripple="light"
                   className="px-4 py-2 rounded"
                   onClick={() => {
-                    if(isLoggedIn){
+                    if (isLoggedIn) {
                       navigate(`/employeedetails/${employee.id}/`)
                     } else {
                       toast.error("Please Login And Contiunue")
                       navigate('/login');
                     }
                   }}
-                  >
+                >
                   Book Now
                 </Button>
-                  
+
               </div>
             </div>
           </div>

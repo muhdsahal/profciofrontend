@@ -7,7 +7,7 @@ import { w3cwebsocket as W3CWebSocket, client } from "websocket";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { useApiContext } from '../../context/context';
-import { Previos_Chat, WebSocket, UserDetailsURL } from '../../constants/constants';
+import { Previos_Chat, WebSocket, UserDetailsURL, base_url } from '../../constants/constants';
 import { jwtDecode } from 'jwt-decode';
 import blankImage from '../../assets/blankprofile.png'
 import { useLocation } from 'react-router-dom';
@@ -132,7 +132,7 @@ function ChatUser() {
                                            {(ListChat.user_type === checkUser? <ListItem key={index} className='grid grid-cols-5' >
                                                 <ListItemPrefix className='col-span-1'>
                                                     {ListChat.profile_photo ? (
-                                                        <Avatar variant="circular" alt="candice" src={ListChat.profile_photo} />
+                                                        <Avatar variant="circular" alt="candice" src={`${base_url}/${ListChat.profile_photo}`} />
                                                     ) : (
                                                         <Avatar variant="circular" alt="candice" src={blankImage} />
                                                     )}
@@ -161,7 +161,8 @@ function ChatUser() {
                     <Card className=' w-full   rounded-b-none  h-20' color='light-blue' style={{ backgroundColor: "black" }} >
                         <div className='flex'>
                             <div>
-                                {(recipientDetails.profile_photo ? <img src={recipientDetails.profile_photo} alt="profile photo" className='ml-4 rounded-md shadow-2xl  w-14 h-14  mt-4 ' /> :
+                                {(recipientDetails.profile_photo ? 
+                                <img src={`${base_url}/${recipientDetails.profile_photo}`} alt="profile photo" className='ml-4 rounded-md shadow-2xl  w-14 h-14  mt-4 ' /> :
                                     <UserCircleIcon className="ml-10 rounded-full w-14 h-14  mt-4 text-[#FAFAFA] " />)}
                             </div>
                             <h1 className='font-prompt-normal ml-3 mt-7 text-[#FAFAFA] text-lg uppercase '>{recipientDetails.username}</h1>

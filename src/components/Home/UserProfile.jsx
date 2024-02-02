@@ -112,7 +112,7 @@ function UserProfile() {
                     <img
                       src={
                         user.profile_photo
-                          ? `${base_url}${user.profile_photo}`
+                          ? `${base_url}/${user.profile_photo}`
                           : "https://bootdey.com/img/Content/avatar/avatar6.png"
                       }
                       alt="user"

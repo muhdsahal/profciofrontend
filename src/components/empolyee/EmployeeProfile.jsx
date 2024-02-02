@@ -132,7 +132,7 @@ function EmployeeProfile() {
                     <img
                       src={
                         employee.profile_photo
-                          ? `${base_url}${employee.profile_photo}`
+                          ? `${base_url}/${employee.profile_photo}`
                           : "https://bootdey.com/img/Content/avatar/avatar6.png"
                       }
                       alt="Employee"
