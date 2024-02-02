@@ -1,24 +1,10 @@
 
 
 import React, { useState, useEffect } from 'react';
-import {
-  Dialog,
-  Card,
-  CardContent,
-  CardActions,
-  Button,
-  TextField,
-  Typography
-} from '@material-tailwind/react';
+import { Dialog, Card, CardBody, CardHeader, CardFooter, Button, Input, Typography } from "@material-tailwind/react";
 import axios from 'axios';
-import Modal from 'react-modal';
 import { ServiceListURL, ServiceCatergoryURL } from '../../constants/constants';
 import {ToastContainer,toast} from 'react-toastify';
-
-;
-
-
-Modal.setAppElement('#root');
 
 const ServiceListPage = () => {
 
@@ -67,20 +53,9 @@ const ServiceListPage = () => {
         console.error(err, "Error in useEffect");
       }
     }
-    // axios
-    //   .get(ServiceListURL)
-    //   .then((response) => {
-    //     setServices(response.data)
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error Fetching Data:", error);
-    //     // setLaoding(false)
-    //   })
-    fetchService()
-  }, [change])
 
-  useEffect(() => {
-    // Fetch category options when the component mounts
+    fetchService()
+
     axios.get(ServiceCatergoryURL)
       .then(response => {
         setCategoryOptions(response.data);
@@ -88,7 +63,18 @@ const ServiceListPage = () => {
       .catch(error => {
         console.error('Error fetching category options:', error);
       });
-  }, []);
+  }, [change])
+
+  // useEffect(() => {
+  //   // Fetch category options when the component mounts
+  //   axios.get(ServiceCatergoryURL)
+  //     .then(response => {
+  //       setCategoryOptions(response.data);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error fetching category options:', error);
+  //     });
+  // }, []);
 
 
   const serviceCreate = async() => {
@@ -166,7 +152,7 @@ const ServiceListPage = () => {
     }
 
   }catch(err){
-    console.error(err, "Error forund during");
+    console.error(err, "an Error during");
   }
     // axios.post(ServiceListURL, formData)
     //   .then(response => {setServices([...services, response.data]),
@@ -385,25 +371,25 @@ const ServiceListPage = () => {
       </Card>
 
 
-      {/* </Card> */}
 
 
       <>
 
           <Dialog
-            size="md"
             open={open}
             onClose={handleOpenModal}
             aria-labelledby="form-dialog-title"
+            maxWidth="xl"
             
           >
-            <Card>
-              <CardContent className='flex flex-wrap gap-3'>
-                <Typography variant="h4" color="primary">
-                  create Service
+            <Card className='flex flex-wrap gap-2'>
+              
+                <Typography variant="h4" color="blue">
+                  Create Service
                 </Typography>
               
-                  <TextField
+              <CardBody className='flex flex-wrap gap-2'>
+                  <Input
                     type="text"
                     name="name"
                     label="name"
@@ -414,7 +400,7 @@ const ServiceListPage = () => {
                   />
                 
             
-                  <TextField
+                  <Input
                     type="text"
                     name="description"
                     label='description'
@@ -454,8 +440,8 @@ const ServiceListPage = () => {
                   
                   
                 
-              </CardContent>
-              <CardActions className="pt-0">
+              </CardBody>
+              <CardFooter className='flex flex-wrap gap-2'>
                 <Button style={buttonStyle}
                 onClick={serviceCreate} fullWidth>
                   Create Service
@@ -463,7 +449,7 @@ const ServiceListPage = () => {
                 <Button style={cancelColor} onClick={handleOpenModal} fullWidth>
                       cancel
                 </Button>
-              </CardActions>
+              </CardFooter>
             </Card>
           </Dialog>
       </>
@@ -471,21 +457,21 @@ const ServiceListPage = () => {
       <>
 
         <Dialog
-          size="xs"
+          
           open={editOpen}
           onclose={editOpenModal}
           aria-labelledby="form-dialog-title"
+          maxWidth="xl"
           
         >
-          <Card >
-            <CardContent className='flex flex-wrap gap-3'>
+          <Card className='flex flex-wrap gap-3'>
+            
               <Typography variant="h4" color="primary">
                 Edit Service
               </Typography>
-              {/* <CloseIcon onClick={editOpenModal} className='justify-items-end' style={{ cursor: 'pointer' }} /> */}
 
-              
-                <TextField
+              <CardBody className='flex flex-wrap gap-2'>
+                <Input
                   type="text"
                   label="Name"
                   name="name"
@@ -496,7 +482,7 @@ const ServiceListPage = () => {
                 />
               
            
-                <TextField
+                <Input
                 label="description"
                   type="text"
                   name="description"
@@ -529,18 +515,19 @@ const ServiceListPage = () => {
                   // value={editServiceData.service_image}
                   onChange={handleFileInputChange} />
               </Typography>
-            </CardContent>
-            <CardActions className="pt-0">
+              </CardBody>
+            <CardFooter className='flex flex-wrap gap-2'>
               <Button style={buttonStyle} onClick={serviceEdit} fullWidth>
                 Edit Service
               </Button>
               <Button style={cancelColor} onClick={editOpenModal} fullWidth>
                 cancel
               </Button>
-            </CardActions>
+            </CardFooter>
           </Card>
         </Dialog>
       </>
+
       <ToastContainer />
     </div>
   );

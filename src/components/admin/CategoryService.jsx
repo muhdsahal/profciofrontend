@@ -256,8 +256,7 @@ function CategoryService() {
         }}
       >
         <Card>
-          {/* <CardHeader>
-          </CardHeader> */}
+          
             <Typography variant="h3" color="blue">Create Service</Typography>
           <CardBody>
           
