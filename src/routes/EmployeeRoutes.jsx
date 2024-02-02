@@ -27,7 +27,7 @@ function EmployeeRoutes(){
             
 
             <Route exact element={<EmployeeProtected />}>
-                <Route path="/" element={<EmployeeHome />} />
+                <Route path="/dashboard/:userId" element={<EmployeeHome />} />
                 <Route path="/profile/:userId" element={<EmployeeProfilePage />} />
                 <Route path="/booking_list/:userId" element={<BookingListPage />} />
                 <Route path="/customer/:userId" element={<CustomerPage />} />

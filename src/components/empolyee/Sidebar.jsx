@@ -39,11 +39,13 @@ export function SidebarWithSearch() {
   const userId = decode.user_id;
   const [open, setOpen] = useState(0);
   const navigate = useNavigate()
-  const { employeeCredentials } = useApiContext()
 
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
+  const handleDashboard=()=>{
+    navigate(`/employee/dashboard/${userId}`);
+  }
   const handleLogout = () => {
     localStorage.removeItem('token')
     toast.success("Log Outed Successfully")
@@ -52,7 +54,6 @@ export function SidebarWithSearch() {
   }
   function toProfile() {
     navigate(`/employee/profile/${userId}`);
-    // console.log(userId,'userID>>>>>>>>>>>>>>>>>');
   }
 
   const toBookings = () => {
@@ -81,7 +82,7 @@ export function SidebarWithSearch() {
 
 
 
-          <ListItem>
+          <ListItem onClick={handleDashboard}>
             <ListItemPrefix>
               <PresentationChartBarIcon color="white" className="h-5 w-5" />
             </ListItemPrefix>
