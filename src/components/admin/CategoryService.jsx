@@ -323,7 +323,7 @@ function CategoryService(){
 
     )
 }
-export default  CategoryService 
+export default  CategoryService ;
 
 
 
