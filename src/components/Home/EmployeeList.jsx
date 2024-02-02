@@ -101,7 +101,7 @@ function EmployeeList() {
       return cityMatches && serviceMatches && searchMatches && isActive;
     });
     setFilteredEmployees(filtered);
-    console.log(filterEmployees,'filterEmployeesfilterEmployeesfilterEmployees');
+    console.log(employees,'filterEmployeesfilterEmployeesfilterEmployees');
   };
 
   return (
