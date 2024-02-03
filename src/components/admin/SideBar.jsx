@@ -18,6 +18,8 @@ import {
 import PeopleIcon from '@mui/icons-material/People';
 import WorkIcon from '@mui/icons-material/Work';
 import CategoryIcon from '@mui/icons-material/Category';
+import BookIcon from '@mui/icons-material/Book';
+
 import { useNavigate } from "react-router-dom";
 
 export function Sidebar() {
@@ -84,15 +86,10 @@ export function Sidebar() {
           </ListItemPrefix>
           Sales Report
         </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <InboxIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Review
-        </ListItem>
+       
         <ListItem onClick={handleBooking}>
           <ListItemPrefix>
-            <UserCircleIcon className="h-5 w-5" />
+            <BookIcon className="h-5 w-5" />
           </ListItemPrefix>
           Booking
         </ListItem>
