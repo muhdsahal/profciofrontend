@@ -4,12 +4,12 @@ import React, { useState, useEffect } from 'react';
 import { Dialog, Card, CardBody, CardHeader, CardFooter, Button, Input, Typography } from "@material-tailwind/react";
 import axios from 'axios';
 import { ServiceListURL, ServiceCatergoryURL } from '../../constants/constants';
-import {ToastContainer,toast} from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 
 const ServiceListPage = () => {
 
   const [open, setOpen] = React.useState(false);
-  const[change, setChange] = useState(false)
+  const [change, setChange] = useState(false)
   const [editOpen, seteditOpen] = React.useState(false);
   const handleOpenModal = () => setOpen((cur) => !cur);
   const editOpenModal = () => seteditOpen((cur) => !cur);
@@ -33,23 +33,23 @@ const ServiceListPage = () => {
     setserviceImage(file);
   };
 
- 
-  
+
+
   const tokenDataString = localStorage.getItem("access_token");
   useEffect(() => {
     const fetchService = async () => {
-      try{
-        
-        const response = await fetch(ServiceListURL,{
-          method:"GET",
-          headers:{
+      try {
+
+        const response = await fetch(ServiceListURL, {
+          method: "GET",
+          headers: {
             Authorization: `Bearer ${tokenDataString}`,
-            "Content-type":"application/json"
+            "Content-type": "application/json"
           },
         })
-        const responseData  = await response.json()
+        const responseData = await response.json()
         setServices(responseData)
-      }catch(err){
+      } catch (err) {
         console.error(err, "Error in useEffect");
       }
     }
@@ -65,108 +65,86 @@ const ServiceListPage = () => {
       });
   }, [change])
 
-  // useEffect(() => {
-  //   // Fetch category options when the component mounts
-  //   axios.get(ServiceCatergoryURL)
-  //     .then(response => {
-  //       setCategoryOptions(response.data);
-  //     })
-  //     .catch(error => {
-  //       console.error('Error fetching category options:', error);
-  //     });
-  // }, []);
 
 
-  const serviceCreate = async() => {
+
+  const serviceCreate = async () => {
 
     if (!serviceName.trim()) {
       toast.error("Service name cannot be empty");
       return;
-  }
+    }
 
-  if (serviceName.trim().length < 3) {
+    if (serviceName.trim().length < 3) {
       toast.error("Service name must be at least 3 characters long");
       return;
-  }
+    }
 
-  if (!serviceName || !serviceCategory) {
-    toast.error('Service name and category are required.');
-    return;
-  }
+    if (!serviceName || !serviceCategory) {
+      toast.error('Service name and category are required.');
+      return;
+    }
 
-  const isDuplicate = services.some(
-    (service) =>
-      service.name=== serviceName.toLowerCase() &&
-      service.category === serviceCategory.toLowerCase()
-  );
+    const isDuplicate = services.some(
+      (service) =>
+        service.name === serviceName.toLowerCase() &&
+        service.category === serviceCategory.toLowerCase()
+    );
 
 
-  if (isDuplicate) {
-    toast.error('Service with the same name and category already exists.');
-    return;
-  }
+    if (isDuplicate) {
+      toast.error('Service with the same name and category already exists.');
+      return;
+    }
 
-  if (!/^[a-zA-Z]+$/.test(serviceName.trim()) || !isNaN(serviceName.trim())) {
+    if (!/^[a-zA-Z]+$/.test(serviceName.trim()) || !isNaN(serviceName.trim())) {
       toast.error("Service name can only contain letters. Numbers and minus numbers are not allowed.");
       return;
-  }
+    }
 
-  // if (services.some(service => service.name === serviceName)) {
-  //     toast.error("Service name already exists. Please choose a different name.");
-  //     return;
-  // }
+    // if (services.some(service => service.name === serviceName)) {
+    //     toast.error("Service name already exists. Please choose a different name.");
+    //     return;
+    // }
 
-  if (!serviceDiscription.trim()) {
+    if (!serviceDiscription.trim()) {
       toast.error("Service description cannot be empty");
       return;
-  }
+    }
 
-  
+
 
     const formData = new FormData();
     formData.append('name', serviceName);
     formData.append('description', serviceDiscription);
     formData.append('category', serviceCategory);
     formData.append('service_image', serviceImage);
-    try{
+    try {
 
-      const response = await fetch(ServiceListURL,{
-        method : "POST",
-        headers :{
-          Authorization : `Bearer ${tokenDataString}`
+      const response = await fetch(ServiceListURL, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${tokenDataString}`
 
-      },
-      body : formData
-    });
-    // console.log(responseData,'responseDataresponseDataresponseData');
-    if(!response.ok){
-      toast.error("an error occured while creating !")
-      
-    }else{
-      setserviceName(''),
-        setserviceDiscription(''),
-        setserviceCategory(''),
-        setserviceImage(null),
-      toast.success("Service Created SuccessFully")
-      setChange(!change)
+        },
+        body: formData
+      });
+      // console.log(responseData,'responseDataresponseDataresponseData');
+      if (!response.ok) {
+        toast.error("an error occured while creating !")
+
+      } else {
+        setserviceName(''),
+          setserviceDiscription(''),
+          setserviceCategory(''),
+          setserviceImage(null),
+          toast.success("Service Created SuccessFully")
+        setChange(!change)
+      }
+
+    } catch (err) {
+      console.error(err, "an Error during");
     }
-
-  }catch(err){
-    console.error(err, "an Error during");
-  }
-    // axios.post(ServiceListURL, formData)
-    //   .then(response => {setServices([...services, response.data]),
-    //     setserviceName(''),
-    //     setserviceDiscription(''),
-    //     setserviceCategory(''),
-    //     setserviceImage(null),
-    //     console.log('daata successfull')
-    //     toast.success("service createed Successfully")
-    //   })
-        // .catch(error => {
-        //   console.error('Error creating service:', error);
-        //   // Handle error display or other actions as needed
-        // });
     handleOpenModal()
   }
 
@@ -194,32 +172,32 @@ const ServiceListPage = () => {
     if (!serviceName.trim()) {
       toast.error("Service name cannot be empty");
       return;
-  }
+    }
 
-  if (serviceName.trim().length < 3) {
+    if (serviceName.trim().length < 3) {
       toast.error("Service name must be at least 3 characters long");
       return;
-  }
+    }
 
-  if (!/^[a-zA-Z]+$/.test(serviceName.trim()) || !isNaN(serviceName.trim())) {
+    if (!/^[a-zA-Z]+$/.test(serviceName.trim()) || !isNaN(serviceName.trim())) {
       toast.error("Service name can only contain letters. Numbers and minus numbers are not allowed.");
       return;
-  }
+    }
 
-  if(!serviceName){
-    toast.error("service name cannot be empty")
-    return
-  }
-  if(!serviceCategory){
-    toast.error("category  name cannot be empty")
-    return
-  }
-  
+    if (!serviceName) {
+      toast.error("service name cannot be empty")
+      return
+    }
+    if (!serviceCategory) {
+      toast.error("category  name cannot be empty")
+      return
+    }
 
-  if (!serviceDiscription.trim()) {
+
+    if (!serviceDiscription.trim()) {
       toast.error("Service description cannot be empty");
       return;
-  }
+    }
     const formData = new FormData();
     formData.append('name', serviceName);
     formData.append('description', serviceDiscription);
@@ -227,16 +205,16 @@ const ServiceListPage = () => {
     // formData.append('service_image', serviceImage);
 
     axios.put(`${ServiceListURL}${editService_id}/`, formData)
-      .then(response =>{
+      .then(response => {
         setserviceName(''),
-        setserviceDiscription(''),
-        setserviceCategory(''),
-        setserviceImage(null),
-        toast.success("Service Edited  successfully!"),
-        console.log(' edit successfull')
+          setserviceDiscription(''),
+          setserviceCategory(''),
+          setserviceImage(null),
+          toast.success("Service Edited  successfully!"),
+          console.log(' edit successfull')
         setChange(!change)
-        })
-        .catch(error => {
+      })
+      .catch(error => {
         console.error('Error editing service:', error);
         // Handle error display or other actions as needed
       });
@@ -244,8 +222,8 @@ const ServiceListPage = () => {
 
   }
 
-  
-  
+
+
   const getSortedServices = () => {
     return services.slice().sort((a, b) => a.id - b.id);
   };
@@ -264,6 +242,8 @@ const ServiceListPage = () => {
 
   return (
     <div className="flex flex-col min-h-screen items-center ">
+      <h1 className="text-center text-black  text-1xl font-roboto-mono mb-4">Services</h1>
+
 
       <Card className="my-4 mx-4">
         <div >
@@ -298,7 +278,7 @@ const ServiceListPage = () => {
                   Name
                 </Typography>
               </th>
-              
+
               <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
                 <Typography
                   variant="small"
@@ -317,7 +297,7 @@ const ServiceListPage = () => {
                   Action
                 </Typography>
               </th>
-              
+
             </tr>
           </thead>
 
@@ -342,17 +322,17 @@ const ServiceListPage = () => {
                     {service.name}
                   </Typography>
                 </td>
-                
+
                 <td className={classes}>
-                <Typography
+                  <Typography
                     variant="small"
                     color="blue-gray"
                     className="font-prompt-semibold"
                   >
-                  {categoryOptions.find(category => category.id === service.category)?.name || 'N/A'}
+                    {categoryOptions.find(category => category.id === service.category)?.name || 'N/A'}
 
                   </Typography>
-                  
+
                 </td>
                 <td className={classes}>
                   <Button
@@ -362,7 +342,7 @@ const ServiceListPage = () => {
                     Edit
                   </Button>
                 </td>
-                
+
               </tr>
 
             ))}
@@ -375,121 +355,121 @@ const ServiceListPage = () => {
 
       <>
 
-          <Dialog
-            open={open}
-            onClose={handleOpenModal}
-            aria-labelledby="form-dialog-title"
-            maxWidth="xl"
-            
-          >
-            <Card className='flex flex-wrap gap-2'>
-              
-                <Typography variant="h4" color="blue">
-                  Create Service
-                </Typography>
-              
-              <CardBody className='flex flex-wrap gap-2'>
-                  <Input
-                    type="text"
-                    name="name"
-                    label="name"
-                    value={serviceName}
-                    onChange={(e) => setserviceName(e.target.value)}
-                    fullWidth
+        <Dialog
+          open={open}
+          onClose={handleOpenModal}
+          aria-labelledby="form-dialog-title"
+          maxWidth="xl"
 
-                  />
-                
-            
-                  <Input
-                    type="text"
-                    name="description"
-                    label='description'
-                    value={serviceDiscription}
-                    onChange={(e) => setserviceDiscription(e.target.value)}
-                    fullWidth
-                    
-                  />
-                  <br />
-                
-                <div className="flex gap md:w-86 h-10">
-                  <select
-                    name="category"
-                    value={serviceCategory}
-                    onChange={(e) => setserviceCategory(e.target.value)}
-                    className="border-[1px] border-[#747676]"
-                  >
-                    <option value="" disabled>Select a service category</option>
-                    {categoryOptions.map((category) => (
-                      <option key={category.id} value={category.id}>
-                        {category.name}
-                      </option>
-                    ))}
-                  </select>
-                      
-                  </div>
-                
+        >
+          <Card className='flex flex-wrap gap-2'>
 
-                <Typography variant="h6">
-                  image 
-                  <input
+            <Typography variant="h4" color="blue">
+              Create Service
+            </Typography>
+
+            <CardBody className='flex flex-wrap gap-2'>
+              <Input
+                type="text"
+                name="name"
+                label="name"
+                value={serviceName}
+                onChange={(e) => setserviceName(e.target.value)}
+                fullWidth
+
+              />
+
+
+              <Input
+                type="text"
+                name="description"
+                label='description'
+                value={serviceDiscription}
+                onChange={(e) => setserviceDiscription(e.target.value)}
+                fullWidth
+
+              />
+              <br />
+
+              <div className="flex gap md:w-86 h-10">
+                <select
+                  name="category"
+                  value={serviceCategory}
+                  onChange={(e) => setserviceCategory(e.target.value)}
+                  className="border-[1px] border-[#747676]"
+                >
+                  <option value="" disabled>Select a service category</option>
+                  {categoryOptions.map((category) => (
+                    <option key={category.id} value={category.id}>
+                      {category.name}
+                    </option>
+                  ))}
+                </select>
+
+              </div>
+
+
+              <Typography variant="h6">
+                image
+                <input
                   type="file"
                   name="service_image"
                   onChange={handleFileInputChange}
                 />
-                </Typography>   
-                  
-                  
-                
-              </CardBody>
-              <CardFooter className='flex flex-wrap gap-2'>
-                <Button style={buttonStyle}
+              </Typography>
+
+
+
+            </CardBody>
+            <CardFooter className='flex flex-wrap gap-2'>
+              <Button style={buttonStyle}
                 onClick={serviceCreate} fullWidth>
-                  Create Service
-                </Button>
-                <Button style={cancelColor} onClick={handleOpenModal} fullWidth>
-                      cancel
-                </Button>
-              </CardFooter>
-            </Card>
-          </Dialog>
+                Create Service
+              </Button>
+              <Button style={cancelColor} onClick={handleOpenModal} fullWidth>
+                cancel
+              </Button>
+            </CardFooter>
+          </Card>
+        </Dialog>
       </>
 
       <>
 
         <Dialog
-          
+
           open={editOpen}
           onclose={editOpenModal}
           aria-labelledby="form-dialog-title"
           maxWidth="xl"
-          
+
         >
           <Card className='flex flex-wrap gap-3'>
-            
-              <Typography variant="h4" color="primary">
-                Edit Service
-              </Typography>
 
-              <CardBody className='flex flex-wrap gap-2'>
-                <Input
-                  type="text"
-                  label="Name"
-                  name="name"
-                  value={serviceName}
-                  onChange={(e) => setserviceName(e.target.value)}
-                  fullWidth
+            <Typography variant="h4" color="primary">
+              Edit Service
+            </Typography>
 
-                />
-              
-           
-                <Input
+            <CardBody className='flex flex-wrap gap-2'>
+              <Input
+                type="text"
+                label="Name"
+                name="name"
+                value={serviceName}
+                onChange={(e) => setserviceName(e.target.value)}
+                fullWidth
+
+              />
+
+
+              <Input
                 label="description"
-                  type="text"
-                  name="description"
-                  value={serviceDiscription}
-                  onChange={(e) => setserviceDiscription(e.target.value)}
-                  fullWidth
-                />
+                type="text"
+                name="description"
+                value={serviceDiscription}
+                onChange={(e) => setserviceDiscription(e.target.value)}
+                fullWidth
+              />
 
               <div className="flex gap md:w-86 h-10">
                 <select
@@ -515,7 +495,7 @@ const ServiceListPage = () => {
                   // value={editServiceData.service_image}
                   onChange={handleFileInputChange} />
               </Typography>
-              </CardBody>
+            </CardBody>
             <CardFooter className='flex flex-wrap gap-2'>
               <Button style={buttonStyle} onClick={serviceEdit} fullWidth>
                 Edit Service

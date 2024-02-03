@@ -134,7 +134,8 @@ function AvailableDates(props) {
 
   return (
     <div>
-      <h1>Available Dates</h1>
+      <h1 className="text-center text-black  text-1xl font-roboto-mono mb-4">Available Dates</h1>
+
       <Calendar
         value={selectedDate}
         onChange={handleDateChange}

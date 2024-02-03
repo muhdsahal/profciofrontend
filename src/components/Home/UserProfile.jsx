@@ -99,9 +99,8 @@ function UserProfile() {
           <div className="md:w-2/4 py-5 px-10 bg-white rounded-md border shadow  h-fit">
 
           
-            <Typography variant="h3" color="blue" className="flex justify-center">
-              user Profile
-            </Typography>
+          <h1 className="text-center text-black  text-1xl font-roboto-mono mb-4">User Profile</h1>
+
             <div>
             
               <Card className="shadow-none">

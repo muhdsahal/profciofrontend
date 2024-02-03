@@ -28,9 +28,11 @@ function BookingListAdmin() {
     
     const bookData = () => {
         if(!bookingList){
-            return <h1>No Bookings Found</h1>
+            return  <h1 className="text-center text-black  text-1xl font-roboto-mono mb-4">No Bookings Found</h1>
+            
         }else{
-            return <h1> My Bookings </h1>
+            return  <h1 className="text-center text-black  text-1xl font-roboto-mono mb-4">My Bookings</h1>
+
             
         }
     }

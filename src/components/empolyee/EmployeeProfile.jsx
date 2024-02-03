@@ -119,9 +119,8 @@ function EmployeeProfile() {
           <div className=" py-5 px-10 bg-white rounded-md border shadow  h-fit">
 
           
-            <Typography variant="h3" color="blue" className="flex justify-center">
-              Employee Profile
-            </Typography>
+          <h1 className="text-center text-black  text-1xl font-roboto-mono mb-4">Employee Profile</h1>
+
             <div>
             
               <Card className="shadow-none">

@@ -68,7 +68,8 @@ function EmployeeDetails() {
   
   return (<>
     <div>
-      <h1 className='flex text-center justify-center'>EmployeeDetails</h1>
+    <h1 className="text-center text-black  text-1xl font-roboto-mono mb-4">Employee Details</h1>
+
 
     </div>
 
@@ -132,12 +133,12 @@ function EmployeeDetails() {
 
 
     ) : (
-      <p>Loading...</p>)}
+      <Loader/>
+      )}
     <section>
       <div className="flex justify-center">
-        <h3  className="text-black text-3xl font-poppins font-medium">
-        Reviews And Ratings
-        </h3>
+      <h3 className="text-center text-black  text-1xl font-roboto-mono mb-4">Review And Ratings</h3>
+
       </div>
 
       {reviewData.map((review, index) => (

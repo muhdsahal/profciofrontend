@@ -55,7 +55,8 @@ function UserList() {
 
     return (
         <div className="flex flex-col min-h-screen items-center ">
-                <h1>User List</h1>
+        <h1 className="text-center text-black  text-1xl font-roboto-mono mb-4">Users</h1>
+
             <Card className="h-full w-full">
                 <table className='w-full min-w-max table-auto text-left'>
                     <thead>
