@@ -134,7 +134,7 @@ function AvailableDates(props) {
 
   return (
     <div>
-      <h1 className="text-center text-black absolute text-5xl -mt-7 font-roboto-mono mb-4">Available Dates</h1>
+      <h1 className="text-center text-black text-5xl  font-roboto-mono mb-4">Available Dates</h1>
 
       <Calendar
         value={selectedDate}

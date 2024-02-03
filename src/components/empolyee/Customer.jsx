@@ -28,10 +28,10 @@ function Customer() {
 
     const customerData = (userId) => {
         if (customer.length !== 0) {
-            return <h1 className="text-center text-black absolute text-5xl -mt-7 font-roboto-mono mb-4">My Customers</h1>
+            return <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">My Customers</h1>
 
         } else {
-            return <h1 className="text-center text-black absolute text-5xl -mt-7 font-roboto-mono mb-4">No Customer Found</h1>
+            return <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">No Customer Found</h1>
 
         }
     }   

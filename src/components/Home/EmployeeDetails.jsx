@@ -68,7 +68,7 @@ function EmployeeDetails() {
   
   return (<>
     <div>
-    <h1 className="text-center text-black absolute text-5xl -mt-7 font-roboto-mono mb-4">Employee Details</h1>
+    <h1 className="text-center text-black  text-5xl font-roboto-mono mb-4">Employee Details</h1>
 
 
     </div>

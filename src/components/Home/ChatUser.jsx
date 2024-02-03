@@ -119,7 +119,7 @@ function ChatUser() {
 
     return (
         <div>
-        <h1 className="text-center text-black absolute text-5xl -mt-7 font-roboto-mono mb-4">Chat </h1>
+        <h1 className="text-center text-black  text-5xl font-roboto-mono mb-4">Chat </h1>
 
             <div className='flex'>
                 <Card className=' border-[1px]  ml-5 mt-2  '>

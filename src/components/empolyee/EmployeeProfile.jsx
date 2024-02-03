@@ -119,7 +119,7 @@ function EmployeeProfile() {
           <div className=" py-5 px-10 bg-white rounded-md border shadow  h-fit">
 
           
-          <h1 className="text-center text-black absolute text-5xl -mt-7 font-roboto-mono mb-4">Employee Profile</h1>
+          <h1 className="text-center text-black text-5xl  font-roboto-mono mb-4">Employee Profile</h1>
 
             <div>
             

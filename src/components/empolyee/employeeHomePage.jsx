@@ -29,7 +29,7 @@ function EmployeeHomePage() {
     return (
         <div>
             {/* <h1 className='flex text-center justify-center font-roboto-mono text-black'></h1> */}
-            <h1 className="text-center text-black absolute text-5xl -mt-7 font-roboto-mono mb-4">Employee Dashboard</h1>
+            <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">Employee Dashboard</h1>
             {employeeReport ? (
                 <div>
                     <div className="flex flex-wrap justify-between mb-5 mt-5 ml-5 gap-1">
