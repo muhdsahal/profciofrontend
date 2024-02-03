@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BookingUserSide,EmpUrl } from "../../constants/constants";
 import { jwtDecode } from "jwt-decode";
-import { Button, Card, CardActions, CardContent, Dialog, Input, TextField, Typography } from "@mui/material";
+import { Dialog, Card, CardBody, CardFooter, Button, Input, Typography } from "@material-tailwind/react";
 import StarRating from "./ReviewRating/StarRating";
 import EditIcon from '@mui/icons-material/Edit';
 import {ToastContainer,toast} from 'react-toastify';
@@ -108,7 +108,16 @@ function BookingListUser() {
         }).catch((error)=>{
             console.log(error,"an error during edit");
         })
-    }
+    }   
+
+    const buttonStyle = {
+        backgroundColor: 'lightseagreen',
+        color: 'white', // Optionally, set text color
+      };
+      const cancelColor = {
+        backgroundColor: 'red',
+        color: 'white', // Optionally, set text color
+      };
 
 
     
@@ -274,8 +283,8 @@ function BookingListUser() {
             aria-labelledby="form-dialog-title"
             fullWidth
         >
-            <Card >
-                <CardContent className="h-full">
+            <Card  className="h-full" >
+                <CardBody>
                     <Typography variant="h4" className="flex gap-4">
                         Write Review
                     </Typography>
@@ -285,15 +294,18 @@ function BookingListUser() {
                     </label>
                     <div className="flex flex-row gap-3">
                         Review:
-                        <TextField fullWidth value={reviewText} onChange={(e) => setReviewText(e.target.value)} />
+                        <Input fullWidth value={reviewText} onChange={(e) => setReviewText(e.target.value)} />
                     </div>
-                </CardContent>
+                </CardBody>
             </Card>
-            <CardActions>
-                <Button className="bg-green" variant="contained" onClick={handleReviewSubmit} fullWidth>
+            <CardFooter className='flex flex-wrap gap-2'>
+                <Button   onClick={handleReviewSubmit} fullWidth style={buttonStyle}>
                     Create
                 </Button>
-            </CardActions>
+                <Button   onClick={handleOpenModal} fullWidth style={cancelColor}>
+                    Cancel
+                </Button>
+            </CardFooter>
         </Dialog>
 
         <div>
@@ -304,8 +316,8 @@ function BookingListUser() {
             aria-labelledby="form-dialog-title"
             fullWidth
         >
-            <Card >
-                <CardContent className="h-full">
+            <Card  className="h-full">
+                <CardBody >
                     <Typography variant="h4" className="flex gap-4">
                         Edit Review
                     </Typography>
@@ -315,15 +327,18 @@ function BookingListUser() {
                     </label>
                     <div className="flex flex-row gap-3">
                         Review:
-                        <TextField fullWidth value={ratingReviewEditText} onChange={(e) => setratingReviewEditText(e.target.value)} />
+                        <Input fullWidth value={ratingReviewEditText} onChange={(e) => setratingReviewEditText(e.target.value)} />
                     </div>
-                </CardContent>
+                </CardBody>
             </Card>
-            <CardActions>
-                <Button className="bg-green" variant="contained" onClick={editReview} fullWidth>
+            <CardFooter className='flex flex-wrap gap-2'>
+                <Button style={buttonStyle} onClick={editReview} fullWidth>
                 Update
                 </Button>
-            </CardActions>
+                <Button   onClick={handleEditModal} fullWidth style={cancelColor}>
+                    Cancel
+                </Button>
+            </CardFooter>
         </Dialog>
                 :'')}
 

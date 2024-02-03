@@ -1,7 +1,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { Dialog, Card, CardBody, CardHeader, CardFooter, Button, Input, Typography } from "@material-tailwind/react";
+import { Dialog, Card, CardBody, CardFooter, Button, Input, Typography } from "@material-tailwind/react";
 import axios from 'axios';
 import { ServiceListURL, ServiceCatergoryURL } from '../../constants/constants';
 import { ToastContainer, toast } from 'react-toastify';
@@ -26,9 +26,6 @@ const ServiceListPage = () => {
 
 
   const handleFileInputChange = (e) => {
-
-    console.log(e.target.files[0], 'jjjjjjjjjjjjjjjj');
-    // setShowprofileImage(URL.createObjectURL(event.target.files[0]));
     const file = e.target.files[0];
     setserviceImage(file);
   };
