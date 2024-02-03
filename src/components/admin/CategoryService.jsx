@@ -150,7 +150,7 @@ function CategoryService() {
   };
   return (
     <div className="flex flex-col  items-center justify-center">
-<h1 className="text-center text-black  text-1xl font-roboto-mono mb-4">Category</h1>
+<h1 className="text-center text-black absolute text-5xl -mt-7 font-roboto-mono mb-4">Category</h1>
 
       <Card className="my-4 mx-4 overflow-x-auto">
         <div>
