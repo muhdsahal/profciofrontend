@@ -151,7 +151,7 @@ function EmployeeList() {
             {employee.profile_photo ? (
 
               <img
-                src={`${base_url}/${employee.profile_photo}`}
+                src={employee.profile_photo}
                 alt="Profile photo"
                 className="w-full h-48 object-cover"
               />

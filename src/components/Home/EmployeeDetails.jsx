@@ -148,7 +148,7 @@ function EmployeeDetails() {
               <ListItem>
                 <ListItemPrefix>
                   {review.userDetails.profile_photo ? (
-                    <img className='rounded-full w-12' src={`${base_url}/${review.userDetails.profile_photo}`} />
+                    <img className='rounded-full w-12' src={review.userDetails.profile_photo} />
                   ) : (
                     <img alt="img" src={blankImage} className='rounded-full w-12' />
                   )}
