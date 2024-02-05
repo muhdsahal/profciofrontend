@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, Button, Input, Typography } from "@material-tailwind/react";
 import { useParams } from "react-router-dom";
-import {toast, ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { Auth_Url, base_url } from "../../constants/constants";
-import CitiesData   from  '../../components/empolyee/locations.json'
+import CitiesData from '../../components/empolyee/locations.json'
 import { Grid } from "@mui/material";
 function UserProfile() {
   const [user, setUser] = useState(null);
@@ -42,7 +42,7 @@ function UserProfile() {
   const handleCancelEdit = () => {
     setEditing(false);
     setupdatedUser(user);
-    setImageFile(null); 
+    setImageFile(null);
   };
 
   const handleUpdateProfile = async () => {
@@ -53,16 +53,16 @@ function UserProfile() {
       if (imageFile) {
         formData.append("profile_photo", imageFile, imageFile.name);
       }
-      
+
       // Append other fields
       formData.append("username", updatedUser.username);
       formData.append("email", updatedUser.email);
       formData.append("phone_number", updatedUser.phone_number);
       formData.append("place", updatedUser.place);
-  
+
       const authToken = localStorage.getItem("access_token");
       const response = await axios.put(
-        `${Auth_Url}user_profile/${userId}/`,  
+        `${Auth_Url}user_profile/${userId}/`,
         formData,
         {
           headers: {
@@ -71,11 +71,11 @@ function UserProfile() {
           },
         }
       );
-  
+
       setUser(response.data);
       setEditing(false);
       setImageFile(null);
-  
+
       console.log(response.data, "Profile updated successfully");
       toast.success("Profile updated successfully");
     } catch (error) {
@@ -97,21 +97,17 @@ function UserProfile() {
       {user && (
         <div className="w-screen min-h-screen flex justify-center px-2  bg-gray-50" >
           <div className="md:w-2/4 py-5 px-10 bg-white rounded-md border shadow  h-fit">
-          <h1 className="text-center text-black  text-5xl font-roboto-mono mb-4">User Profile</h1>
+            <h1 className="text-center text-black  text-5xl font-roboto-mono mb-4">User Profile</h1>
 
             <div>
-            
+
               <Card className="shadow-none">
                 <div>
-                  <div 
-                  className="flex flex-col items-center" 
+                  <div
+                    className="flex flex-col items-center"
                   >
                     <img
-                      src={
-                        user.profile_photo
-                          ? `${base_url}/${user.profile_photo}`
-                          : "https://bootdey.com/img/Content/avatar/avatar6.png"
-                      }
+                      src={user.profile_photo ? user.profile_photo : "https://bootdey.com/img/Content/avatar/avatar6.png"}
                       alt="user"
                       className="rounded-sm"
                       width="200"
@@ -130,7 +126,7 @@ function UserProfile() {
                             placeholder="Profile Image"
                           />
                           <Input
-                          label="username"
+                            label="username"
                             type="text"
                             name="username"
                             value={updatedUser.username}
@@ -138,7 +134,7 @@ function UserProfile() {
                             placeholder="Username"
                           />
                           <Input
-                          label="email"
+                            label="email"
                             type="text"
                             name="email"
                             value={updatedUser.email}
@@ -151,24 +147,24 @@ function UserProfile() {
                             name="phone_number"
                             value={updatedUser.phone_number}
                             onChange={handleInputChange}
-                            // placeholder="Phone Number"
+                          // placeholder="Phone Number"
                           />
 
                           <div className="flex gap-4 md:w-86 h-10">
-                          <select name="place"  id="" 
-                          className="border-[1px] border-[#747676]"
-                          value = {updatedUser.place}
-                          onChange={handleInputChange}
+                            <select name="place" id=""
+                              className="border-[1px] border-[#747676]"
+                              value={updatedUser.place}
+                              onChange={handleInputChange}
 
-                          >
-                            <option value="">Select Your Location</option>
-                            {cityOptions.map((option)=>(
-                              <option key={option.value} value={option.value}>
-                              {option.label}
-                            </option>
-                            ))}
-                          </select>
-                        </div>
+                            >
+                              <option value="">Select Your Location</option>
+                              {cityOptions.map((option) => (
+                                <option key={option.value} value={option.value}>
+                                  {option.label}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
 
                           <div className="flex justify-between">
                             <Button
@@ -189,28 +185,28 @@ function UserProfile() {
                         // Viewing mode
                         <div className="space-y-4">
                           <div>
-                          <Grid container spacing={2} justify="center">
-                            <Grid item xs={12}>
-                              <Typography variant="h4" className="flex text text-blueGray-700">
-                                <Input
-                                  label="username"
-                                  type="username"
-                                  name="username"
-                                  value={user.username}
-                                />
-                              </Typography>
+                            <Grid container spacing={2} justify="center">
+                              <Grid item xs={12}>
+                                <Typography variant="h4" className="flex text text-blueGray-700">
+                                  <Input
+                                    label="username"
+                                    type="username"
+                                    name="username"
+                                    value={user.username}
+                                  />
+                                </Typography>
+                              </Grid>
+                              <Grid item xs={12}>
+                                <Typography variant="h4" className="text-center text-blueGray-700">
+                                  <Input
+                                    label="email"
+                                    type="email"
+                                    name="email"
+                                    value={user.email}
+                                  />
+                                </Typography>
+                              </Grid>
                             </Grid>
-                            <Grid item xs={12}>
-                              <Typography variant="h4" className="text-center text-blueGray-700">
-                                <Input
-                                  label="email"
-                                  type="email"
-                                  name="email"
-                                  value={user.email}
-                                />
-                              </Typography>
-                            </Grid>
-                          </Grid>
 
 
                             <Grid container spacing={2} justify="center">
@@ -219,11 +215,11 @@ function UserProfile() {
                                   variant="h4"
                                   className="text-center text-blueGray-700"
                                 >
-                                   <Input
-                                  label="phone_number"
-                                  type="phone_number"
-                                  name="phone_number"
-                                  value={user.phone_number}
+                                  <Input
+                                    label="phone_number"
+                                    type="phone_number"
+                                    name="phone_number"
+                                    value={user.phone_number}
                                   />
                                 </Typography>
                               </Grid>
@@ -232,11 +228,11 @@ function UserProfile() {
                                   variant="h4"
                                   className="text-center text-blueGray-700"
                                 >
-                                   <Input
-                                  label="place"
-                                  type="place"
-                                  name="place"
-                                  value={user.place}
+                                  <Input
+                                    label="place"
+                                    type="place"
+                                    name="place"
+                                    value={user.place}
                                   />
                                 </Typography>
                               </Grid>
@@ -257,7 +253,7 @@ function UserProfile() {
                 </div>
               </Card>
             </div>
-           <ToastContainer />           
+            <ToastContainer />
           </div>
         </div>
       )}
