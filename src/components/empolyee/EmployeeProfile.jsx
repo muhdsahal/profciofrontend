@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { ServiceListURL, base_url } from "../../constants/constants";
 import AvailableDates from "../Home/AvailableDates";
 import CitiesData from '../../components/empolyee/locations.json'
+import blankImage from '../../assets/blankprofile.png'
 function EmployeeProfile() {
   const { userId } = useParams();
   const [employee, setEmployee] = useState(null);
@@ -129,12 +130,24 @@ function EmployeeProfile() {
                   <div
                     className="flex flex-col items-center"
                   >
-                    <img
-                      src={employee.profile_photo ? `${base_url}/${employee.profile_photo}` : "https://bootdey.com/img/Content/avatar/avatar6.png"}
+                    {employee.profile_photo ?  (
+                      <img
+                      src={`${base_url}/${employee.profile_photo}`} 
                       alt="user"
                       className="rounded-sm"
                       width="200"
-                    />
+                      />
+                      ):(
+                        
+                      <img
+                      src={blankImage}
+                      alt="user"
+                      className="rounded-sm"
+                      width="200"
+                      />
+                      )}
+                      
+                  
                     <div className="mt-3">
                       {editing ? (
                         // Edit mode
