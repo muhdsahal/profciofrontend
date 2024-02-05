@@ -133,7 +133,7 @@ function ChatUser() {
                                            {(ListChat.user_type === checkUser? <ListItem key={index} className='grid grid-cols-5' >
                                                 <ListItemPrefix className='col-span-1'>
                                                     {ListChat.profile_photo ? (
-                                                        <Avatar variant="circular" alt="candice" src={`${base_url}/${ListChat.profile_photo}`} />
+                                                        <Avatar variant="circular" alt="candice" src={`${base_url}${ListChat.profile_photo}`} />
                                                     ) : (
                                                         <Avatar variant="circular" alt="candice" src={blankImage} />
                                                     )}
@@ -163,7 +163,7 @@ function ChatUser() {
                         <div className='flex'>
                             <div>
                                 {(recipientDetails.profile_photo ? 
-                                <img src={`${base_url}/${recipientDetails.profile_photo}`} alt="profile photo" className='ml-4 rounded-md shadow-2xl  w-14 h-14  mt-4 ' /> :
+                                <img src={`${base_url}${recipientDetails.profile_photo}`} alt="profile photo" className='ml-4 rounded-md shadow-2xl  w-14 h-14  mt-4 ' /> :
                                     <UserCircleIcon className="ml-10 rounded-full w-14 h-14  mt-4 text-[#FAFAFA] " />)}
                             </div>
                             <h1 className='font-prompt-normal ml-3 mt-7 text-[#FAFAFA] text-lg uppercase '>{recipientDetails.username}</h1>
