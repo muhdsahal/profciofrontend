@@ -8,6 +8,7 @@ import { ServiceListURL, base_url } from "../../constants/constants";
 import AvailableDates from "../Home/AvailableDates";
 import CitiesData from '../../components/empolyee/locations.json'
 import blankImage from '../../assets/blankprofile.png'
+
 function EmployeeProfile() {
   const { userId } = useParams();
   const [employee, setEmployee] = useState(null);
@@ -30,9 +31,8 @@ function EmployeeProfile() {
     };
 
     fetchData();
-  }, [userId]);
 
-  useEffect(() => {
+
     axios.get(ServiceListURL)
       .then((response) => {
         setService(response.data || [])
@@ -40,7 +40,9 @@ function EmployeeProfile() {
       .catch((error) => {
         console.error("an error during fetch data", error);
       })
-  }, [])
+  }, [userId]);
+
+
 
 
 
@@ -133,7 +135,7 @@ function EmployeeProfile() {
                   >
                     {employee.profile_photo ?  (
                       <img
-                      src={`${base_url}/${employee.profile_photo}`} 
+                      src={`${base_url}+${employee.profile_photo}`} 
                       alt="user"
                       className="rounded-sm"
                       width="200"
