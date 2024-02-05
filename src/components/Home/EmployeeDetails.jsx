@@ -79,7 +79,7 @@ function EmployeeDetails() {
         <div className="container mx-auto px-4">
         {employeeData.profile_photo ? (
           <img
-            src={`${base_url}/${employeeData.profile_photo}`}
+            src={employeeData.profile_photo}
             alt="card-image"
             className="w-full h-100 object-cover"
           />
