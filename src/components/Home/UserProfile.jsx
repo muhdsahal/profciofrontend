@@ -6,6 +6,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import { Auth_Url, base_url } from "../../constants/constants";
 import CitiesData from '../../components/empolyee/locations.json'
 import { Grid } from "@mui/material";
+import blankImage from '../../assets/blankprofile.png'
+
 function UserProfile() {
   const [user, setUser] = useState(null);
   const [editing, setEditing] = useState(false);
