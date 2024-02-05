@@ -1,24 +1,11 @@
-import {
-  Card,
-  Typography,
-  List,
-  ListItem,
-  ListItemPrefix,
-  ListItemSuffix,
-  Chip,
-} from "@material-tailwind/react";
-import {
-  PresentationChartBarIcon,
-  ShoppingBagIcon,
-  UserCircleIcon,
-  Cog6ToothIcon,
-  InboxIcon,
-  PowerIcon,
-} from "@heroicons/react/24/solid";
+import { Card, Typography, List, ListItem, ListItemPrefix, } from "@material-tailwind/react";
+import { PresentationChartBarIcon, PowerIcon, } from "@heroicons/react/24/solid";
 import PeopleIcon from '@mui/icons-material/People';
 import WorkIcon from '@mui/icons-material/Work';
 import CategoryIcon from '@mui/icons-material/Category';
 import BookIcon from '@mui/icons-material/Book';
+import AssessmentIcon from '@mui/icons-material/Assessment';
+
 
 import { useNavigate } from "react-router-dom";
 
@@ -30,21 +17,25 @@ export function Sidebar() {
     navigate("/admin/adminhome/")
   }
 
-  const handleUserList = () =>{
+  const handleUserList = () => {
     navigate("/admin/users/")
   }
-  const handleLogout = () =>{
+  const handleLogout = () => {
     localStorage.removeItem('token')
     navigate('/admin_login/')
   }
-  const handleService = () =>{
+  const handleService = () => {
     navigate('/admin/services/')
   }
-  const handleCategory = () =>{
+  const handleCategory = () => {
     navigate("/admin/category/")
   }
-  const handleBooking = () =>{
+  const handleBooking = () => {
     navigate("/admin/booking/")
+  }
+
+  const toSalesReport = () => {
+    navigate('/admin/sales_report/')
   }
 
   return (
@@ -61,31 +52,38 @@ export function Sidebar() {
           </ListItemPrefix>
           Dashboard
         </ListItem>
-          
-          <ListItem onClick={handleCategory} >
-            <ListItemPrefix >
-              <CategoryIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            Services Category
-          </ListItem>
-          <ListItem onClick={handleService}>
-            <ListItemPrefix>
-              <WorkIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            Services Banner
-          </ListItem>
-          <ListItem onClick={handleUserList}>
-            <ListItemPrefix>
-              <PeopleIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            Users
-          </ListItem>
-       
+
+        <ListItem onClick={handleCategory} >
+          <ListItemPrefix >
+            <CategoryIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Services Category
+        </ListItem>
+        <ListItem onClick={handleService}>
+          <ListItemPrefix>
+            <WorkIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Services Banner
+        </ListItem>
+        <ListItem onClick={handleUserList}>
+          <ListItemPrefix>
+            <PeopleIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Users
+        </ListItem>
+
         <ListItem onClick={handleBooking}>
           <ListItemPrefix>
             <BookIcon className="h-5 w-5" />
           </ListItemPrefix>
           Booking
+        </ListItem>
+
+        <ListItem onClick={toSalesReport}>
+          <ListItemPrefix>
+            <AssessmentIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Sales Report
         </ListItem>
 
         <ListItem onClick={handleLogout}>

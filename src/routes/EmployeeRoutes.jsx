@@ -11,6 +11,8 @@ import ResetPassword from "../pages/ResetPassword";
 import BookingListPage from "../pages/employee/BookingListPage";
 import ChatPageEmployee from "../pages/employee/ChatPageEmployee";
 import CustomerPage from "../pages/employee/CustomerPage";
+// import SalesReport from "../components/empolyee/SalesReport";
+import SalesReportPage from "../pages/employee/SalesReportPage";
 
 function EmployeeRoutes(){
     return(
@@ -32,6 +34,7 @@ function EmployeeRoutes(){
                 <Route path="/booking_list/:userId" element={<BookingListPage />} />
                 <Route path="/customer/:userId" element={<CustomerPage />} />
                 <Route path="/chat" element={<ChatPageEmployee />} />
+                <Route path="/sales_report" element={<SalesReportPage />} />
             </Route>
         </Routes>
     )

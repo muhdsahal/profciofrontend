@@ -8,6 +8,7 @@ import UserLists from "../pages/admin/UserList";
 import ServiceList from "../pages/admin/ServiceList";
 import ServiceCategoryPage from "../pages/admin/ServiceCategoryPage";
 import BookingPage from "../pages/admin/BookingPage";
+import SalesReportPageAdmin from "../pages/admin/SalesReportPageAdmin";
 function AdminRoutes() {
     return (
         <Routes>
@@ -22,6 +23,8 @@ function AdminRoutes() {
                     <Route path="/category/" element={<ServiceCategoryPage />} />
                     <Route path="/services/" element={<ServiceList />} />
                     <Route path="/booking/" element={<BookingPage />} />
+                    <Route path="/sales_report/" element={<SalesReportPageAdmin />} />
+
 
             </Route>
         </Routes >

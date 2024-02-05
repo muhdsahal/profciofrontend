@@ -30,6 +30,7 @@ import { toast, ToastContainer } from "react-toastify";
 import BookIcon from '@mui/icons-material/Book';
 import PeopleIcon from '@mui/icons-material/People';
 import ChatIcon from '@mui/icons-material/Chat';
+import AssessmentIcon from '@mui/icons-material/Assessment';
 
 
 
@@ -43,7 +44,7 @@ export function SidebarWithSearch() {
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
-  const handleDashboard=()=>{
+  const handleDashboard = () => {
     navigate(`/employee/dashboard/${userId}`);
   }
   const handleLogout = () => {
@@ -63,14 +64,18 @@ export function SidebarWithSearch() {
   const toChat = () => {
     navigate('/employee/chat')
   }
+
+  const toSales = ()=>{
+    navigate('/employee/sales_report')
+  }
   // console.log(employeeCredentials,'context is working ');
-  const toCustomers = ()=>{
+  const toCustomers = () => {
     navigate(`/employee/customer/${userId}`)
   }
 
   return (
     <>
-      <Card  className="bg-black  h-[calc(120vh-2rem)]  p-7 shadow-xl shadow-blue-gray-900/5 ">
+      <Card className="bg-black  h-[calc(120vh-2rem)]  p-7 shadow-xl shadow-blue-gray-900/5 ">
         <div className="mb-2 flex items-center gap-4 p-4">
           <img src={logo} alt="logo" color='green' width="150" height="100" />
         </div>
@@ -98,23 +103,31 @@ export function SidebarWithSearch() {
 
           <ListItem onClick={toBookings}>
             <ListItemPrefix>
-              <BookIcon color="white" className="h-5 w-5 bg-white" />
+              <BookIcon  className="h-5 w-5 text-white" />
             </ListItemPrefix>
             <span className="font-bold text-1xl text-white">Bookings</span>
           </ListItem>
 
           <ListItem onClick={toCustomers}>
             <ListItemPrefix>
-              <PeopleIcon color="white" className="h-5 w-5 bg-white" />
+              <PeopleIcon  className="h-5 w-5 text-white" />
             </ListItemPrefix>
             <span className="font-bold text-1xl text-white">Customers</span>
           </ListItem>
 
           <ListItem onClick={toChat}>
             <ListItemPrefix>
-              <ChatIcon color="white" className="h-5 w-5 bg-white" />
+              <ChatIcon className="h-5 w-5 text-white" />
             </ListItemPrefix>
             <span className="font-bold text-1xl text-white">Chat</span>
+          </ListItem>
+
+
+          <ListItem onClick={toSales}>
+            <ListItemPrefix>
+              <AssessmentIcon className="h-5 w-5 text-white" />
+            </ListItemPrefix>
+            <span className="font-bold text-1xl text-white">Sales Report</span>
           </ListItem>
 
           <ListItem onClick={handleLogout}>
