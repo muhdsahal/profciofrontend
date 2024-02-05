@@ -67,7 +67,7 @@ console.log(base_url,'logggggggggggggggggggggggggguurrrrrrrrll');
       <div key={index} className="relative">
         {service.service_image ? (
           <img
-          src={`${base_url}/${service.service_image}`}
+          src={service.service_image}
           alt="img_sevice"
           className="h-96 min-w-full object-cover rounded-xl border-2 border-r-emerald-600-500" // Adjust height and width as needed
 
