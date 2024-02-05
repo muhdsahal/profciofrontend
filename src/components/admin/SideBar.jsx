@@ -80,12 +80,6 @@ export function Sidebar() {
             </ListItemPrefix>
             Users
           </ListItem>
-          <ListItem>
-          <ListItemPrefix>
-            <ShoppingBagIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Sales Report
-        </ListItem>
        
         <ListItem onClick={handleBooking}>
           <ListItemPrefix>

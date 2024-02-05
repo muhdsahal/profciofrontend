@@ -5,7 +5,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-// import Chart from "react-apexcharts";
+import Chart from 'react-apexcharts'
 import { AdminDashboardUrl } from "../../constants/constants";
 import axios from "axios";
 import Loader from "../Loading/Loading";
@@ -35,11 +35,63 @@ function AdminHomePage() {
         })
 
     }, [manageState])
-
+    const [chartData, setChartData] = useState({
+        series: [],
+        options: {
+            chart: {
+                width: 380,
+                type: "donut",
+            },
+            plotOptions: {
+                pie: {
+                    startAngle: -90,
+                    endAngle: 270,
+                },
+            },
+            dataLabels: {
+                enabled: false,
+            },
+            fill: {
+                type: "gradient",
+            },
+            legend: {
+                formatter: function (val, opts) {
+                    const categories = [
+                        "Active Posts",
+                        "Total Posts",
+                        "Blocked Posts",
+                    ];
+                    return (
+                        categories[opts.seriesIndex] +
+                        " - " +
+                        opts.w.globals.series[opts.seriesIndex]
+                    );
+                },
+            }, // Correct placement of the closing curly brace
+            title: {
+                text: "PUBLIC POST OVERVIEW",
+            },
+            responsive: [
+                {
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 200,
+                        },
+                        legend: {
+                            position: "bottom",
+                        },
+                    },
+                },
+            ],
+        },
+    });
 
     return (
         <div>
-            <h1 className='flex text-center justify-center font-roboto-mono text-black'>Admin Dashboard</h1>
+            <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">Admin Dashboard</h1>
+
+
             {countOfUser ? (
 
                 <div className="flex flex-wrap justify-between mb-5 mt-5 ml-5 gap-1">
@@ -102,9 +154,19 @@ function AdminHomePage() {
                             <Typography className='font-prompt mt-2' variant="h5">Total Revenue</Typography>
                             {bookingDetails.data[4] && (
                                 <Typography variant="h2">{bookingDetails.data[4].total_price}</Typography>
-                            )}                    
-                            </div>
+                            )}
+                        </div>
                     </div>
+                    <div className=" row">
+                <div className="mixed-chart">
+                    <Chart
+                        options={chartData.options}
+                        series={chartData.series}
+                        type="donut"
+                        width="400"
+                    />
+                </div>
+            </div>
 
                 </div>
             ) : (
@@ -113,6 +175,7 @@ function AdminHomePage() {
 
 
 
+         
         </div>
 
     )
