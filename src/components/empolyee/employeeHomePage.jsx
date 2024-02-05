@@ -76,7 +76,7 @@ function EmployeeHomePage() {
 
                 </div>
             ) : (
-                <p>loading.............</p>
+                <Loader/>
             )}
 
             {/* <div className="flex ml-10 ">
