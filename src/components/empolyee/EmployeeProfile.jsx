@@ -135,7 +135,7 @@ function EmployeeProfile() {
                   >
                     {employee.profile_photo ?  (
                       <img
-                      src={`${base_url}+${employee.profile_photo}`} 
+                      src={`${base_url}${employee.profile_photo}`} 
                       alt="user"
                       className="rounded-sm"
                       width="200"
