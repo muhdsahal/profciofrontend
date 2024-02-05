@@ -153,7 +153,7 @@ function AdminHomePage() {
                         <div className="flex flex-col items-center">
                             <Typography className='font-prompt mt-2' variant="h5">Total Revenue</Typography>
                             {bookingDetails.data[4] && (
-                                <Typography variant="h2">{bookingDetails.data[4].total_price}</Typography>
+                                <Typography variant="h2">₹{bookingDetails.data[4].total_price}</Typography>
                             )}
                         </div>
                     </div>

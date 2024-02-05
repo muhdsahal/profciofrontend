@@ -29,7 +29,8 @@ const ServiceList = () => {
   }, []);
   
 
-
+console.log(services,'logggggggggggggggggggggggggg');
+console.log(base_url,'logggggggggggggggggggggggggguurrrrrrrrll');
 
   return (
     <div style={{backgroundColor:'black'}}>

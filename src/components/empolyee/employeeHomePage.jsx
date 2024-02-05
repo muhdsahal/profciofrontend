@@ -68,7 +68,7 @@ function EmployeeHomePage() {
                         <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-[#000000]">
                             <div className="flex flex-col items-center">
                                 <Typography className='font-prompt mt-2' variant="h5">Total Revenue</Typography>
-                                <Typography variant="h2">{employeeReport.total_price}</Typography>
+                                <Typography variant="h2">₹{employeeReport.total_price}</Typography>
                             </div>
                         </div>
 
@@ -76,14 +76,14 @@ function EmployeeHomePage() {
 
                 </div>
             ) : (
-                <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">Loading ....</h1>
+                <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">Loading ....    </h1>
             )}
 
             {/* <div className="flex ml-10 ">
                 <div className=" row">
                     <div className="mixed-chart">
                         <Chart
-                            // options={chartData.options}
+                            // options={chartData.o ptions}
                             // series={chartData.series}
                             // type="donut"
                             width="400"
