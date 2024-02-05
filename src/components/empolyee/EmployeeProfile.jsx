@@ -114,6 +114,7 @@ function EmployeeProfile() {
   };
 
   console.log(employee,';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;');
+  console.log(base_url,'url');
   return (
     <div className=" flex justify-center pt-10 bg-gray-50" >
       {employee && (
