@@ -112,7 +112,7 @@ function EmployeeProfile() {
     }));
   };
 
-  console.log(employee.profile_photo,';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;');
+  console.log(employee,';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;');
   return (
     <div className=" flex justify-center pt-10 bg-gray-50" >
       {employee && (
