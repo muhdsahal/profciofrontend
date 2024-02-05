@@ -105,12 +105,22 @@ function UserProfile() {
                   <div
                     className="flex flex-col items-center"
                   >
-                    <img
-                      src={user.profile_photo ? user.profile_photo : "https://bootdey.com/img/Content/avatar/avatar6.png"}
+                    {user.profile_photo ?  (
+                      <img
+                      src={`${base_url}${user.profile_photo}`} 
                       alt="user"
                       className="rounded-sm"
                       width="200"
-                    />
+                      />
+                      ):(
+                        
+                      <img
+                      src={blankImage}
+                      alt="user"
+                      className="rounded-sm"
+                      width="200"
+                      />
+                      )}
                     <div className="mt-3">
                       {editing ? (
                         // Edit mode
