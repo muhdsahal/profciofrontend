@@ -130,7 +130,7 @@ function EmployeeProfile() {
                     className="flex flex-col items-center"
                   >
                     <img
-                      src={employee.profile_photo ?`${base_url}/${employee.profile_photo}` : "https://bootdey.com/img/Content/avatar/avatar6.png"}
+                      src={employee.profile_photo ? `${base_url}/${employee.profile_photo}` : "https://bootdey.com/img/Content/avatar/avatar6.png"}
                       alt="user"
                       className="rounded-sm"
                       width="200"
