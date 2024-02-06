@@ -62,7 +62,7 @@ function SalesReport() {
                 setTotalAmountValue(value)
             }
             const data = response.data
-            setSalesData([...data])
+            setSalesData(data)
         }).catch((error) => {
             console.error("an error occured fetching", error);
         })
