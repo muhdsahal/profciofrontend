@@ -222,35 +222,33 @@ function SalesReport() {
                                 </th>
                             </tr>
                         </thead>
-                        {/* <tbody className="bg-white divide-y divide-blue-gray-200">
-        {salesData ? (
-            salesData.map((sales) => {
-                const classes = "px-4 py-4 whitespace-nowrap";
-                const statusColor =
-                    sales.booking_status === 'completed' ? 'bg-green-500' :
-                    sales.booking_status === 'ongoing' ? 'bg-yellow-500' :
-                    'bg-blue-500';
+                        <tbody className="bg-white divide-y divide-blue-gray-200">
+                            {salesData ? (
+                                salesData.map((sales) => (
 
-                return (
-                    <tr key={sales.id}>
-                        <td className={classes}>{sales.id}</td>
-                        <td className={classes}>{sales.userDetails.username}</td>
-                        <td className={classes}>{sales.userDetails.email}</td>
-                        <td className={classes}>{sales.userDetails.phone_number}</td>
-                        <td className={classes}>{sales.booking_date}</td>
-                        <td className={classes}>₹{sales.price}</td>
-                        <td className={`${classes} ${statusColor} text-white uppercase`}>
-                            {sales.booking_status}
-                        </td>
-                    </tr>
-                );
-            })
-        ) : (
-            <tr>
-                <td colSpan="7" className="px-4 py-4 text-sm text-blue-gray-500">No sales data available</td>
-            </tr>
-        )}
-    </tbody> */}
+                                    <tr key={sales.id}>
+                                        <td className='px-4 py-4 whitespace-nowrap'>{sales.id}</td>
+                                        <td className='px-4 py-4 whitespace-nowrap'>{sales.userDetails.username}</td>
+                                        <td className='px-4 py-4 whitespace-nowrap'>{sales.userDetails.email}</td>
+                                        <td className='px-4 py-4 whitespace-nowrap'>{sales.userDetails.phone_number}</td>
+                                        <td className='px-4 py-4 whitespace-nowrap'>{sales.booking_date}</td>
+                                        <td className='px-4 py-4 whitespace-nowrap'>₹{sales.price}</td>
+
+                                        <td className={`px-4 py-4 whitespace-nowrap text-white uppercase ${sales.booking_status === 'completed' ? 'bg-[#1cc643]' :
+                                                sales.booking_status === 'ongoing' ? 'bg-[#fee81f]' :
+                                                    'bg-[#1dd0f4]'}`}>
+                                            {sales.booking_status}
+                                        </td>
+
+                                    </tr>
+
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan="7" className="px-4 py-4 text-sm text-blue-gray-500">No sales data available</td>
+                                </tr>
+                            )}
+                        </tbody>
                     </table>
                     <div className='flex justify-between text-2xl font-prompt-normal mt-3 mb-3'>
                         <div className='ml-5'>
