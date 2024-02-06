@@ -68,7 +68,7 @@ function SalesReport() {
     }
 
 
-   const downloadPdf=(responseData)=> {
+    const downloadPdf = (responseData) => {
         const blob = new Blob([responseData], { type: 'application/pdf' });
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
@@ -76,12 +76,12 @@ function SalesReport() {
         link.setAttribute('download', 'sales_report.pdf');
         document.body.appendChild(link);
         link.click();
-        document.body.removeChild(link);  
+        document.body.removeChild(link);
         window.URL.revokeObjectURL(url);
-      }
+    }
 
-     const generatePdf =()=>{
-    
+    const generatePdf = () => {
+
         let start_date = ''
         let end_date = ''
         if (dateStart && dateEnd) {
@@ -106,28 +106,28 @@ function SalesReport() {
                 end_date = dateEnd
             }
         }
-        axios.get(`${AdminDashboardUrl}sales-report-pdf/${userId}/?start_date=${start_date}&end_date=${end_date}&booking_status=${status}`,{ responseType: 'arraybuffer'})
-        .then((response) => {
-            downloadPdf(response.data);
-            console.log(response,'>>>>>>>>>>>>>>>>>.......');
-           
-        }).catch((error) => {
-            console.error("an error occured fetching", error);
-        })
+        axios.get(`${AdminDashboardUrl}sales-report-pdf/${userId}/?start_date=${start_date}&end_date=${end_date}&booking_status=${status}`, { responseType: 'arraybuffer' })
+            .then((response) => {
+                downloadPdf(response.data);
+                console.log(response, '>>>>>>>>>>>>>>>>>.......');
+
+            }).catch((error) => {
+                console.error("an error occured fetching", error);
+            })
     }
 
     useEffect(() => {
-        if (salesData.length==0) {
+        if (salesData.length == 0) {
             generateReport()
         }
     }, [salesData, managePage])
 
-    
-    
+
+
 
     return (
         <div>
-        
+
             <h1 className='text-5xl  text-center mb-4 text-black font-roboto-mono'>Sales Report</h1>
             <div className=' flex gap-5 justify-center'>
                 <label onClick={handleOpen} >From</label>
@@ -222,7 +222,7 @@ function SalesReport() {
                                 </th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-blue-gray-200">
+                        {/* <tbody className="bg-white divide-y divide-blue-gray-200">
         {salesData ? (
             salesData.map((sales) => {
                 const classes = "px-4 py-4 whitespace-nowrap";
@@ -250,7 +250,7 @@ function SalesReport() {
                 <td colSpan="7" className="px-4 py-4 text-sm text-blue-gray-500">No sales data available</td>
             </tr>
         )}
-    </tbody>
+    </tbody> */}
                     </table>
                     <div className='flex justify-between text-2xl font-prompt-normal mt-3 mb-3'>
                         <div className='ml-5'>
