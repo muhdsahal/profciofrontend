@@ -45,7 +45,7 @@ export function SidebarWithSearch() {
     setOpen(open === value ? 0 : value);
   };
   const handleDashboard = () => {
-    navigate(`/employee/dashboard/${userId}`);
+    navigate(`/employee/`);
   }
   const handleLogout = () => {
     localStorage.removeItem('token')
@@ -54,11 +54,11 @@ export function SidebarWithSearch() {
 
   }
   function toProfile() {
-    navigate(`/employee/profile/${userId}`);
+    navigate(`/employee/profile`);
   }
 
   const toBookings = () => {
-    navigate(`/employee/booking_list/${userId}`)
+    navigate(`/employee/booking_list`)
   }
 
   const toChat = () => {
@@ -70,7 +70,7 @@ export function SidebarWithSearch() {
   }
   // console.log(employeeCredentials,'context is working ');
   const toCustomers = () => {
-    navigate(`/employee/customer/${userId}`)
+    navigate(`/employee/customer`)
   }
 
   return (

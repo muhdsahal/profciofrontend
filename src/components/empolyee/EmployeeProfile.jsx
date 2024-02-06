@@ -8,9 +8,12 @@ import { ServiceListURL, base_url } from "../../constants/constants";
 import AvailableDates from "../Home/AvailableDates";
 import CitiesData from '../../components/empolyee/locations.json'
 import blankImage from '../../assets/blankprofile.png'
+import { jwtDecode } from "jwt-decode";
 
 function EmployeeProfile() {
-  const { userId } = useParams();
+  const token = localStorage.getItem("token")
+  const decode = jwtDecode(token)
+  const userId = decode.user_id
   const [employee, setEmployee] = useState(null);
   const [editing, setEditing] = useState(false);
   const [updatedEmployee, setUpdatedEmployee] = useState({});

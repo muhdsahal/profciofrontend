@@ -2,6 +2,7 @@ import { jwtDecode } from 'jwt-decode';
 import { Outlet, useNavigate } from 'react-router-dom'
 import EmployeeHome from '../../pages/employee/EmployeeHome';
 import AdminHome from '../../pages/admin/AdminHome';
+import { useEffect } from 'react';
 
 
 function UserProtected(){
@@ -66,9 +67,19 @@ function UserProtected(){
       socket.close();
     };
   }, [id]); 
+
+
     const token =localStorage.getItem('token');
     const navigate = useNavigate()
-    console.log(token,'hhhhhhhhhhhhhhhhhhhhhhhhhh');
+  
+
+
+
+    useEffect(() => {
+      if(!token){
+          navigate("/login")
+      }
+  }, [token])
 
     if(token){
         const decoded = jwtDecode(token);

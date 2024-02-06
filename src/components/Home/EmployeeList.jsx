@@ -172,7 +172,7 @@ function EmployeeList() {
                   className="px-4 py-2 rounded"
                   onClick={() => {
                     if (isLoggedIn) {
-                      navigate(`/employeedetails/${employee.id}/`)
+                      navigate("/employeedetails",{state:{data:employee.id}})
                     } else {
                       toast.error("Please Login And Contiunue")
                       navigate('/login');

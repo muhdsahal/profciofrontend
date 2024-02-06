@@ -76,7 +76,7 @@ function SalesReport() {
         link.setAttribute('download', 'sales_report.pdf');
         document.body.appendChild(link);
         link.click();
-        document.body.removeChild(link);
+        document.body.removeChild(link);  
         window.URL.revokeObjectURL(url);
       }
 

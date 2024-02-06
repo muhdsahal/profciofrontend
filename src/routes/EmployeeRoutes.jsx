@@ -13,6 +13,7 @@ import ChatPageEmployee from "../pages/employee/ChatPageEmployee";
 import CustomerPage from "../pages/employee/CustomerPage";
 // import SalesReport from "../components/empolyee/SalesReport";
 import SalesReportPage from "../pages/employee/SalesReportPage";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 function EmployeeRoutes(){
     return(
@@ -29,13 +30,14 @@ function EmployeeRoutes(){
             
 
             <Route exact element={<EmployeeProtected />}>
-                <Route path="/dashboard/:userId" element={<EmployeeHome />} />
-                <Route path="/profile/:userId" element={<EmployeeProfilePage />} />
-                <Route path="/booking_list/:userId" element={<BookingListPage />} />
-                <Route path="/customer/:userId" element={<CustomerPage />} />
+                <Route path="/" element={<EmployeeHome />} />
+                <Route path="/profile" element={<EmployeeProfilePage />} />
+                <Route path="/booking_list" element={<BookingListPage />} />
+                <Route path="/customer" element={<CustomerPage />} />
                 <Route path="/chat" element={<ChatPageEmployee />} />
                 <Route path="/sales_report" element={<SalesReportPage />} />
             </Route>
+            <Route element={<ErrorPage />} path='/*' />
         </Routes>
     )
 }

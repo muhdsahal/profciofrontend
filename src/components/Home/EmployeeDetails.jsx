@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import Loader from '../Loading/Loading';
 import { ListItem, Rating, Typography } from '@mui/material';
 import { Button, ListItemPrefix } from '@material-tailwind/react';
@@ -15,7 +15,8 @@ function EmployeeDetails() {
   const [bookingData, setBookingData] = useState([])
   const [reviewData, setReViewData] = useState([])
   const navigate = useNavigate()
-  const { id } = useParams();
+  const location = useLocation()
+  const id = location.state.data || ''
     
   useEffect(() => {
     const fetchEmployeeData = async () => {

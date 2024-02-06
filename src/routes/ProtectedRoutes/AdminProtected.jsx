@@ -4,23 +4,18 @@ import Home from '../../pages/Home/Home'
 // import AdminHome from '../../pages/admin/AdminHome';
 import EmployeeHome from '../../pages/employee/EmployeeHome';
 import { jwtDecode } from 'jwt-decode';
+import { useEffect } from 'react';
 
-
-// function parseJwt(token) {
-//     const base64Url = token.split('.')[1];
-//     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-//     const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-//         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-//     }).join(''));
-
-//     return JSON.parse(jsonPayload);
-// }
 
 function AdminProtected(){
     const token =localStorage.getItem('token');
     const navigate = useNavigate()
-
-
+    useEffect(() => {
+        if(!token){
+            navigate("/admin_login")
+        }
+    }, [token])
+    
     if(token){
         const decoded = jwtDecode(token);
         if (decoded.user_type === 'admin' && decoded.is_admin){
@@ -33,5 +28,7 @@ function AdminProtected(){
     }else{
         navigate("/admin_login")
     }
+
+   
 }
 export default AdminProtected;

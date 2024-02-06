@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import { Outlet, useNavigate } from 'react-router-dom'
 import Home from '../../pages/Home/Home'
@@ -8,6 +8,11 @@ function EmployeeProtected(){
     
     const token =localStorage.getItem('token');
     const navigate = useNavigate()
+    useEffect(() => {
+        if(!token){
+            navigate("/employee_login/")
+        }
+    }, [token])
 
     if(token){
         const decoded = jwtDecode(token);

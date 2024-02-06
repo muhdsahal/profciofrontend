@@ -7,19 +7,21 @@ import { Auth_Url, base_url } from "../../constants/constants";
 import CitiesData from '../../components/empolyee/locations.json'
 import { Grid } from "@mui/material";
 import blankImage from '../../assets/blankprofile.png'
+import { jwtDecode } from "jwt-decode";
 
 function UserProfile() {
   const [user, setUser] = useState(null);
   const [editing, setEditing] = useState(false);
   const [updatedUser, setupdatedUser] = useState({});
   const [imageFile, setImageFile] = useState(null);
-  const { userId } = useParams();
+  const token = localStorage.getItem("token")
+  const {user_id} = jwtDecode(token)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${Auth_Url}user_profile/${userId}/`
+          `${Auth_Url}user_profile/${user_id}/`
         );
         setUser(response.data);
         setupdatedUser(response.data);
@@ -30,7 +32,7 @@ function UserProfile() {
     };
 
     fetchData();
-  }, [userId]);
+  }, [user_id]);
 
   const cityOptions = CitiesData.cities.map((city) => ({
     value: city.City,
@@ -64,7 +66,7 @@ function UserProfile() {
 
       const authToken = localStorage.getItem("access_token");
       const response = await axios.put(
-        `${Auth_Url}user_profile/${userId}/`,
+        `${Auth_Url}user_profile/${user_id}/`,
         formData,
         {
           headers: {

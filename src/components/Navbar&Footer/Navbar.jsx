@@ -40,18 +40,18 @@ function ResponsiveNavBar() {
   
   const handleLogout = () => {
     localStorage.removeItem('token');
-    navigate("/login/")
+    navigate("/login")
 
   }
   const handleLogin = () => {
-    navigate("/login/")
+    navigate("/login")
   }
 
   const toProfile = () => {
-    navigate(`/userprofile/${userId}/`)
+    navigate(`/userprofile`)
   }
   const toBookings = () => {
-    navigate(`/booking_list/${userId}`)
+    navigate(`/booking_list`)
   }
   const toChat = () => {
     navigate('/chat')
