@@ -52,7 +52,9 @@ function SalesReport() {
             }
         }
         axios.get(`${AdminDashboardUrl}sales_report/${userId}/?start_date=${start_date}&end_date=${end_date}&booking_status=${status}`).then((response) => {
+
             if (response.data) {
+                setSalesData(response.data)
                 let value = 0
                 const data = response.data
                 for (let sales = 0; sales < data.length; sales++) {
@@ -61,8 +63,6 @@ function SalesReport() {
                 }
                 setTotalAmountValue(value)
             }
-            const data = response.data
-            setSalesData(data)
         }).catch((error) => {
             console.error("an error occured fetching", error);
         })
@@ -125,7 +125,7 @@ function SalesReport() {
 
 
 
-console.log(salesData,'======================>>>>>>>>>>>>>>>>>');
+    console.log(salesData, '======================>>>>>>>>>>>>>>>>>');
     return (
         <div>
 
@@ -225,7 +225,7 @@ console.log(salesData,'======================>>>>>>>>>>>>>>>>>');
                         </thead>
                         <tbody className="bg-white divide-y divide-blue-gray-200">
                             {salesData ? (
-                                salesData.map((sales,index) => (
+                                salesData.map((sales, index) => (
 
                                     <tr key={index}>
                                         <td className='px-4 py-4 whitespace-nowrap'>{sales.id}</td>
@@ -236,8 +236,8 @@ console.log(salesData,'======================>>>>>>>>>>>>>>>>>');
                                         <td className='px-4 py-4 whitespace-nowrap'>₹{sales.price}</td>
 
                                         <td className={`px-4 py-4 whitespace-nowrap text-white uppercase ${sales.booking_status === 'completed' ? 'bg-[#1cc643]' :
-                                                sales.booking_status === 'ongoing' ? 'bg-[#fee81f]' :
-                                                    'bg-[#1dd0f4]'}`}>
+                                            sales.booking_status === 'ongoing' ? 'bg-[#fee81f]' :
+                                                'bg-[#1dd0f4]'}`}>
                                             {sales.booking_status}
                                         </td>
 
