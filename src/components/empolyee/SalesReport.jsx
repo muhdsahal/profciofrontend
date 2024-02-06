@@ -224,9 +224,9 @@ function SalesReport() {
                         </thead>
                         <tbody className="bg-white divide-y divide-blue-gray-200">
                             {salesData ? (
-                                salesData.map((sales) => (
+                                salesData.map((sales,index) => (
 
-                                    <tr key={sales.id}>
+                                    <tr key={index}>
                                         <td className='px-4 py-4 whitespace-nowrap'>{sales.id}</td>
                                         <td className='px-4 py-4 whitespace-nowrap'>{sales.userDetails.username}</td>
                                         <td className='px-4 py-4 whitespace-nowrap'>{sales.userDetails.email}</td>
