@@ -127,11 +127,7 @@ function SalesReport() {
 
     return (
         <div>
-            {/* <div className='z-50'>
-                    <dialog open={open} handler={handleOpen} className=''>
-                        <Calendar onChange={generateReport} value={dateStart} />
-                    </dialog>
-                </div> */}
+        
             <h1 className='text-5xl  text-center mb-4 text-black font-roboto-mono'>Sales Report</h1>
             <div className=' flex gap-5 justify-center'>
                 <label onClick={handleOpen} >From</label>

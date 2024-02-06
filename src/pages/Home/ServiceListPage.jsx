@@ -5,7 +5,6 @@ function ServiceListPage(){
     return(
         <div>
         <ServiceList />
-        <br style={{backgroundColor:'black'}} />
         </div>
     )
 }
