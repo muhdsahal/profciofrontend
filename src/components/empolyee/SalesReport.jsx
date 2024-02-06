@@ -11,7 +11,7 @@ function SalesReport() {
     const token = localStorage.getItem('token')
     const decode = jwtDecode(token)
     const userId = decode.user_id
-    const [salesDatass, setSalesData] = useState([])
+    const [salesData, setSalesData] = useState([])
     const [totalAmountValue, setTotalAmountValue] = useState(0)
     const [dateStart, setDateStart] = useState('')
     const [dateEnd, setDateEnd] = useState('')
@@ -118,14 +118,14 @@ function SalesReport() {
     }
 
     useEffect(() => {
-        if (salesDatass.length == 0) {
-            generateReport()
-        }
-    }, [salesDatass, managePage])
+        // if (salesData.length == 0) {
+        //     generateReport()
+        // }
+    }, [salesData, managePage])
 
 
 
-console.log(salesDatass,'======================>>>>>>>>>>>>>>>>>');
+console.log(salesData,'======================>>>>>>>>>>>>>>>>>');
     return (
         <div>
 
@@ -224,8 +224,8 @@ console.log(salesDatass,'======================>>>>>>>>>>>>>>>>>');
                             </tr>
                         </thead>
                         <tbody className="bg-white divide-y divide-blue-gray-200">
-                            {salesDatass ? (
-                                salesDatass.map((sales,index) => (
+                            {salesData ? (
+                                salesData.map((sales,index) => (
 
                                     <tr key={index}>
                                         <td className='px-4 py-4 whitespace-nowrap'>{sales.id}</td>
