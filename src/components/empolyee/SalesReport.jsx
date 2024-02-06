@@ -224,7 +224,7 @@ function SalesReport() {
                         </thead>
                         <tbody className="bg-white divide-y divide-blue-gray-200">
                             {salesData ? (
-                                salesData.map((sales,index) => (
+                                salesData.flatMap((sales,index) => (
 
                                     <tr key={index}>
                                         <td className='px-4 py-4 whitespace-nowrap'>{sales.id}</td>
