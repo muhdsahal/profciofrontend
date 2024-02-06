@@ -61,7 +61,8 @@ function SalesReport() {
                 }
                 setTotalAmountValue(value)
             }
-            setSalesData(response.data)
+            const data = response.data
+            setSalesData([...data])
         }).catch((error) => {
             console.error("an error occured fetching", error);
         })
@@ -124,7 +125,7 @@ function SalesReport() {
 
 
 
-
+console.log(typeof(salesData),'======================>>>>>>>>>>>>>>>>>');
     return (
         <div>
 
@@ -224,7 +225,7 @@ function SalesReport() {
                         </thead>
                         <tbody className="bg-white divide-y divide-blue-gray-200">
                             {salesData ? (
-                                salesData.flatMap((sales,index) => (
+                                salesData.map((sales,index) => (
 
                                     <tr key={index}>
                                         <td className='px-4 py-4 whitespace-nowrap'>{sales.id}</td>
