@@ -222,7 +222,7 @@ function SalesReport() {
                                 </th>
                             </tr>
                         </thead>
-                        {/* <tbody>
+                        <tbody>
                             {(salesData ? (
                                 salesData.map((sales) => {
 
@@ -294,7 +294,7 @@ function SalesReport() {
                                     );
                                 })
                             ) : '')}
-                        </tbody> */}
+                        </tbody>
                     </table>
                     <div className='flex justify-between text-2xl font-prompt-normal mt-3 mb-3'>
                         <div className='ml-5'>
