@@ -125,7 +125,7 @@ function SalesReport() {
 
 
 
-console.log(typeof(salesData),'======================>>>>>>>>>>>>>>>>>');
+console.log(salesData,'======================>>>>>>>>>>>>>>>>>');
     return (
         <div>
 
