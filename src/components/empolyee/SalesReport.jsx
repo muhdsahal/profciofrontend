@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Card, Typography, ListItemPrefix, Button } from "@material-tailwind/react";
+import { Card, Typography, Button } from "@material-tailwind/react";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { AdminDashboardUrl } from '../../constants/constants';
-import Calendar from 'react-calendar';
-import { Dialog, DialogHeader, DialogBody, DialogFooter, } from "@material-tailwind/react";
 import { jwtDecode } from 'jwt-decode';
 
 function SalesReport() {
