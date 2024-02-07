@@ -26,7 +26,7 @@ function ProfcioFooter() {
  
   return (
     <footer className="relative w-full" style={{ backgroundColor: 'black', color: 'black' }}>
-      <div className="mx-auto w-full max-w-7xl px-8">
+      <div className="mx-auto w-full max-w-7xl px-8 pt-8">
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
           <img src={logo} alt="logo" width="150" height="100" />
           <div className="grid grid-cols-3 justify-between gap-4">
@@ -34,9 +34,7 @@ function ProfcioFooter() {
             {LINKS.map(({ title, items }) => (
               <ul key={title}>
                 <Typography
-                  variant="small"
-                  color="black"
-                  className="mb-3 font-medium opacity-40"
+                  className="mb-3 font-medium text-white"
                 >
                   {title}
                 </Typography>
@@ -45,7 +43,7 @@ function ProfcioFooter() {
                     <Typography
                       as="a"
                       href="#"
-                      color="gray"
+                      color="white"
                       className="py-1.5 font-normal transition-colors hover:text-blue-gray-900"
                     >
                       {link}

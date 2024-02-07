@@ -97,7 +97,7 @@ const handleLogin = async (e) => {
             <img  src={logo} alt="logo" width="130" height="150" className="w-35 h-20" />
           </div>
           <CardBody className="flex flex-col gap-4">
-          <Typography style={{ fontWeight: '500' }}>admin Login</Typography>
+          <Typography style={{ fontWeight: '500' }}>AdminHomedmin Login</Typography>
           <Input
               size="lg"
               placeholder="Enter Your Email"

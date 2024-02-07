@@ -138,8 +138,8 @@ function ResponsiveNavBar() {
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
               <Link to={'/'}
-                className='font-bold animated-gradien text-transparent bg-clip-text bg-gradient-to-r from-light-green-400 via-emerald-400 to-blue-600'
-                style={{ fontSize: '16px' }}>
+                className='font-roboto-mono text-white '
+                style={{ fontSize: '20px' }}>
                 Home</Link>
             </Button>
 
@@ -149,8 +149,8 @@ function ResponsiveNavBar() {
             >
               <Link
                 to={'/employeelist/'}
-                className='font-bold animated-gradien text-transparent bg-clip-text bg-gradient-to-r from-light-green-400 via-emerald-400 to-blue-600'
-                style={{ fontSize: '16px' }}
+                className='font-roboto-mono text-white  '
+                style={{ fontSize: '20px' }}
               >
                 employees
               </Link>
