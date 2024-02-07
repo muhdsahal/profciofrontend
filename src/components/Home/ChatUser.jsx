@@ -18,7 +18,7 @@ function ChatUser() {
     const decode = jwtDecode(token)
     const locations = useLocation()
 
-    const userdata = locations.state || ''
+    // const userdata = locations.state || ''
 
     const [clientstate, setClientState] = useState('');
     const [messageText, setMessageText] = useState('')
