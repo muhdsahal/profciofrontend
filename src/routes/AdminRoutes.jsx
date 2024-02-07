@@ -15,15 +15,15 @@ function AdminRoutes() {
         <Routes>
             <Route>
                 <Route element={<PrivateRoute />} />
-                <Route path="/admin_login/" element={<AdminLoginPage />} />
+                <Route path="/admin_login" element={<AdminLoginPage />} />
             </Route>
             <Route element={<AdminProtected />}>
                 <Route path="/" element={<AdminHome />} />
-                <Route path="/users/" element={<UserLists />} />
-                <Route path="/category/" element={<ServiceCategoryPage />} />
-                <Route path="/services/" element={<ServiceList />} />
-                <Route path="/booking/" element={<BookingPage />} />
-                <Route path="/sales_report/" element={<SalesReportPageAdmin />} />
+                <Route path="/users" element={<UserLists />} />
+                <Route path="/category" element={<ServiceCategoryPage />} />
+                <Route path="/services" element={<ServiceList />} />
+                <Route path="/booking" element={<BookingPage />} />
+                <Route path="/sales_report" element={<SalesReportPageAdmin />} />
             </Route>
             <Route element={<ErrorPage />} path='/*' />
 

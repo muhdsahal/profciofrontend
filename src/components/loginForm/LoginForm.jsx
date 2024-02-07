@@ -166,7 +166,6 @@ function LoginForm(){
             }
           );
           localStorage.clear()
-          console.log(response,'ggggggggggggggggggggggggggggggg');
           localStorage.setItem('access_token',response.access)
           localStorage.setItem('refresh_token',response.refresh)
           axios.defaults.headers.common['Authorization'] = `Bearer ${response['access']}`

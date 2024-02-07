@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Loader from '../Loading/Loading';
 import { ListItem, Rating, Typography } from '@mui/material';
 import { Button, ListItemPrefix } from '@material-tailwind/react';
-import { Box, } from '@mui/material';
 import AvailableDates from './AvailableDates';
 import { Auth_Url, EmpUrl, base_url } from '../../constants/constants';
 import blankImage from '../../assets/blankprofile.png'
@@ -30,7 +29,7 @@ function EmployeeDetails() {
 
     fetchEmployeeData();
   }, [id]);
-  // Fetch data whenever the ID changes
+
 
   useEffect(() => {
     const fetchBookingData = async () => {

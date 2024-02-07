@@ -35,58 +35,7 @@ function AdminHomePage() {
         })
 
     }, [manageState])
-    const [chartData, setChartData] = useState({
-        series: [],
-        options: {
-            chart: {
-                width: 380,
-                type: "donut",
-            },
-            plotOptions: {
-                pie: {
-                    startAngle: -90,
-                    endAngle: 270,
-                },
-            },
-            dataLabels: {
-                enabled: false,
-            },
-            fill: {
-                type: "gradient",
-            },
-            legend: {
-                formatter: function (val, opts) {
-                    const categories = [
-                        "Active Posts",
-                        "Total Posts",
-                        "Blocked Posts",
-                    ];
-                    return (
-                        categories[opts.seriesIndex] +
-                        " - " +
-                        opts.w.globals.series[opts.seriesIndex]
-                    );
-                },
-            }, // Correct placement of the closing curly brace
-            title: {
-                text: "PUBLIC POST OVERVIEW",
-            },
-            responsive: [
-                {
-                    breakpoint: 480,
-                    options: {
-                        chart: {
-                            width: 200,
-                        },
-                        legend: {
-                            position: "bottom",
-                        },
-                    },
-                },
-            ],
-        },
-    });
-
+    
     return (
         <div>
             <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">Admin Dashboard</h1>
@@ -95,19 +44,19 @@ function AdminHomePage() {
             {countOfUser ? (
 
                 <div className="flex flex-wrap justify-between mb-5 mt-5 ml-5 gap-1">
-                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-[#000000]">
+                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-blueGray-800">
                         <div className="flex flex-col items-center">
                             <Typography className='font-prompt mt-2' variant="h5">Total Users</Typography>
                             <Typography variant="h2">{countOfUser.users[0]}</Typography>
                         </div>
                     </div>
-                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-[#000000]">
+                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-blueGray-800">
                         <div className="flex flex-col items-center">
                             <Typography className='font-prompt mt-2' variant="h5">Employees</Typography>
                             <Typography variant="h2">{countOfUser.users[1]}</Typography>
                         </div>
                     </div>
-                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-[#000000]">
+                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-blueGray-800">
                         <div className="flex flex-col items-center">
                             <Typography className='font-prompt mt-2' variant="h5">Users</Typography>
                             <Typography variant="h2">{countOfUser.users[2]}</Typography>
@@ -125,31 +74,31 @@ function AdminHomePage() {
             {bookingDetails ? (
 
                 <div className="flex flex-wrap justify-between mb-5 mt-5 ml-5 gap-1">
-                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-[#000000]">
+                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-blueGray-800">
                         <div className="flex flex-col items-center">
                             <Typography className='font-prompt mt-2' variant="h5">Total Bookings</Typography>
                             <Typography variant="h2">{bookingDetails.data[0]}</Typography>
                         </div>
                     </div>
-                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-[#000000]">
+                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-blueGray-800">
                         <div className="flex flex-col items-center">
                             <Typography className='font-prompt mt-2' variant="h5">Pending</Typography>
                             <Typography variant="h2">{bookingDetails.data[1]}</Typography>
                         </div>
                     </div>
-                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-[#000000]">
+                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-blueGray-800">
                         <div className="flex flex-col items-center">
                             <Typography className='font-prompt mt-2' variant="h5">Ongoing</Typography>
                             <Typography variant="h2">{bookingDetails.data[2]}</Typography>
                         </div>
                     </div>
-                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-[#000000]">
+                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-blueGray-800">
                         <div className="flex flex-col items-center">
                             <Typography className='font-prompt mt-2' variant="h5">Completed</Typography>
                             <Typography variant="h2">{bookingDetails.data[3]}</Typography>
                         </div>
                     </div>
-                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-[#000000]">
+                    <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-blueGray-800">
                         <div className="flex flex-col items-center">
                             <Typography className='font-prompt mt-2' variant="h5">Total Revenue</Typography>
                             {bookingDetails.data[4] && (
@@ -157,17 +106,7 @@ function AdminHomePage() {
                             )}
                         </div>
                     </div>
-                    <div className=" row">
-                <div className="mixed-chart">
-                    <Chart
-                        options={chartData.options}
-                        series={chartData.series}
-                        type="donut"
-                        width="400"
-                    />
-                </div>
-            </div>
-
+             
                 </div>
             ) : (
                 <Loader />
