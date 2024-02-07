@@ -29,7 +29,7 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   background-size: 400% 100%; /* Adjusted background size */
-  animation: slideBackground 15s linear infinite;
+  /* animation: slideBackground 15s linear infinite; */
 }
 
 /* .react-calendar .month-container .day .day-content.booked-date {

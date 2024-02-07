@@ -17,7 +17,7 @@ function EmployeeDetails() {
   const navigate = useNavigate()
   const location = useLocation()
   const id = location.state.data || ''
-    
+
   useEffect(() => {
     const fetchEmployeeData = async () => {
       try {
@@ -64,12 +64,12 @@ function EmployeeDetails() {
 
 
   const HandleChat = (event) => {
-    navigate("/chat",{state:{data:event}})
+    navigate("/chat", { state: { data: event } })
   }
-  
+
   return (<>
     <div>
-    <h1 className="text-center text-black  text-5xl font-roboto-mono mb-4">Employee Details</h1>
+      <h1 className="text-center text-black  text-5xl font-roboto-mono mb-4">Employee Details</h1>
 
 
     </div>
@@ -78,15 +78,15 @@ function EmployeeDetails() {
       <section className="container flex-grow mx-auto max-w-[1200px] border-b py-5 lg:grid lg:grid-cols-2 lg:py-10">
 
         <div className="container mx-auto px-4">
-        {employeeData.profile_photo ? (
-          <img
-            src={employeeData.profile_photo}
-            alt="card-image"
-            className="w-full h-100 object-cover"
-          />
-          ): (
-            <img alt="img" src={blankImage} 
-            className="w-full h-100 object-cover" />
+          {employeeData.profile_photo ? (
+            <img
+              src={employeeData.profile_photo}
+              alt="card-image"
+              className="w-full h-100 object-cover"
+            />
+          ) : (
+            <img alt="img" src={blankImage}
+              className="w-full h-100 object-cover" />
           )}
         </div>
 
@@ -134,11 +134,11 @@ function EmployeeDetails() {
 
 
     ) : (
-      <Loader/>
-      )}
+      <Loader />
+    )}
     <section>
       <div className="flex justify-center">
-      <h3 className="text-center text-black  text-1xl font-roboto-mono mb-4">Review And Ratings</h3>
+        <h3 className="text-center text-black  text-1xl font-roboto-mono mb-4">Review And Ratings</h3>
 
       </div>
 
@@ -149,7 +149,7 @@ function EmployeeDetails() {
               <ListItem>
                 <ListItemPrefix>
                   {review.userDetails.profile_photo ? (
-                    <img className='rounded-full w-12' src={review.userDetails.profile_photo} />
+                    <img className='rounded-full w-12' src={`${base_url}${review.userDetails.profile_photo}`} />
                   ) : (
                     <img alt="img" src={blankImage} className='rounded-full w-12' />
                   )}
