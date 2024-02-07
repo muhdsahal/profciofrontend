@@ -73,7 +73,7 @@ const handleLogin = async (e) => {
       } else {
         toast.success(`Welcome ${decoded.username}....!!`);
         localStorage.setItem("token", token);
-        navigate("/admin/adminhome/");
+        navigate("/admin/");
       }
 
     } catch (error) {

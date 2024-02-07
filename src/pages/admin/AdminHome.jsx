@@ -1,7 +1,6 @@
 import React from "react";
 import AdminHomePage from "../../components/admin/AdminHomePage";
 import AdminSideBar from "./AdminSIdeBar";
-import UserLists from "./UserList";
 
 function AdminHome(){
     return(
