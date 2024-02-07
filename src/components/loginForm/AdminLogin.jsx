@@ -68,7 +68,6 @@ const handleLogin = async (e) => {
                                      `Bearer ${response['access']}`
       const token = JSON.stringify(response.access);
       const decoded = jwtDecode(token);
-      console.log({response}, 'data response,.............................')
       if (decoded.user_type !== 'admin') {
         toast.error(`${decoded.user_type} not valid in this Login`);
       } else {

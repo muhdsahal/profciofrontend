@@ -14,7 +14,7 @@ export function Sidebar() {
   const navigate = useNavigate()
 
   const toAdminHome = () => {
-    navigate("/admin/adminhome/")
+    navigate("/admin/")
   }
 
   const handleUserList = () => {

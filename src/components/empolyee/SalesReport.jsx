@@ -116,9 +116,9 @@ function SalesReport() {
     }
 
     useEffect(() => {
-        // if (salesData.length == 0) {
-        //     generateReport()
-        // }
+        if (salesData.length == 0) {
+            generateReport()
+        }
     }, [salesData, managePage])
 
 
