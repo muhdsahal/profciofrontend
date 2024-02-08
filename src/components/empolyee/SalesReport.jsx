@@ -127,7 +127,7 @@ function SalesReport() {
     return (
         <div>
 
-            <h1 className='text-5xl  text-center mb-4 text-black font-roboto-mono'>Sales Report</h1>
+            {/* <h1 className='text-5xl  text-center mb-4 text-black font-roboto-mono'>Sales Report</h1>
             <div className=' flex gap-5 justify-center'>
                 <label onClick={handleOpen} >From</label>
                 <input type="text" value={dateStart} onChange={(e) => setDateStart(e.target.value)} placeholder='YYYY-MM-DD' className='border-[1px] w-40 h-12 text-start p-2 text-black border-[#c3c3c4] rounded-md font-prompt-normal' />
@@ -260,7 +260,8 @@ function SalesReport() {
                 </Card>
 
                 <ToastContainer />
-            </div>
+            </div> */}
+            lotta
         </div>
     )
 }
