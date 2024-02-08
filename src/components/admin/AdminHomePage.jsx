@@ -27,7 +27,8 @@ function AdminHomePage() {
             const { data } = response.data
 
             // console.log(response.data, '===========================>>>>>>>>>>>>..booking daata');
-            const { total_price } = data[4]
+            // const { total_price } = data[4]
+            const total_price =456
             data.pop()
             setTotal_prices(total_price)
             setBookingDetails(data)
