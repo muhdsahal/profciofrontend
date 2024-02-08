@@ -28,4 +28,6 @@ export const ResetPasswordUrl = import.meta.env.VITE_RESET_PASSWORD
 
 //chat 
 export const WebSocket = import.meta.env.VITE_WEB_SOCKET
+export const WebSocketBaseUrl = import.meta.env.VITE_WEB_SOCKET_BASE_URL
+
 export const Previos_Chat = import.meta.env.VITE_PREVIOUS_CHAT

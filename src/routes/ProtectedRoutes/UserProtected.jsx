@@ -3,12 +3,12 @@ import { Outlet, useNavigate } from 'react-router-dom'
 import EmployeeHome from '../../pages/employee/EmployeeHome';
 import AdminHome from '../../pages/admin/AdminHome';
 import { useEffect } from 'react';
-
+import { WebSocketBaseUrl } from '../../constants/constants';
 
 function UserProtected(){
     
   useEffect(() => {
-    const socket = new WebSocket("ws://localhost:8000/ws/notifications/");
+    const socket = new WebSocket(`${WebSocketBaseUrl}ws/notifications/`);
 
     socket.onopen = (event) => {
       console.log("WebSocket connection opened:", event);
