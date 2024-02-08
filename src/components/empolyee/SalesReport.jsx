@@ -221,7 +221,7 @@ function SalesReport() {
                                 </th>
                             </tr>
                         </thead>
-                        {/* <tbody className="bg-white divide-y divide-blue-gray-200">
+                        <tbody className="bg-white divide-y divide-blue-gray-200">
                             {salesData ? (
                                 salesData.map((sales, index) => (
 
@@ -247,14 +247,14 @@ function SalesReport() {
                                     <td colSpan="7" className="px-4 py-4 text-sm text-blue-gray-500">No sales data available</td>
                                 </tr>
                             )}
-                        </tbody> */}
+                        </tbody>
                     </table>
                     <div className='flex justify-between text-2xl font-prompt-normal mt-3 mb-3'>
                         <div className='ml-5'>
                             Total Amount
                         </div>
                         <div className='mr-10'>
-                            {/* ₹{totalAmountValue} */}
+                            ₹{totalAmountValue}
                         </div>
                     </div>
                 </Card>
