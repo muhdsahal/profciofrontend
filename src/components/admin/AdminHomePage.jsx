@@ -35,8 +35,8 @@ function AdminHomePage() {
     }, [manageState])
     
 
-    // console.log(countOfUser,'loggggggggggggggggggggggggg');
-    // console.log(bookingDetails,'loggggggggggggggggggggggggg9999999999');
+    console.log(countOfUser,'loggggggggggggggggggggggggg');
+    console.log(bookingDetails,'loggggggggggggggggggggggggg9999999999');
     return (
         <div>
             <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">Admin Dashboard</h1>
