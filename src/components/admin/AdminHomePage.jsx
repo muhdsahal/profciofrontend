@@ -101,7 +101,7 @@ function AdminHomePage() {
                     <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-blueGray-800">
                         <div className="flex flex-col items-center">
                             <Typography className='font-prompt mt-2' variant="h5">Total Revenue</Typography>
-                            {bookingDetails.data[4] && (
+                            {bookingDetails.data[4] && (  
                                 <Typography variant="h2">₹{bookingDetails.data[4].total_price}</Typography>
                             )}
                         </div>
