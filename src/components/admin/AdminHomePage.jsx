@@ -15,6 +15,7 @@ function AdminHomePage() {
         setManageState(false)
         axios.get(`${AdminDashboardUrl}admin/usercount/`).then((response) => {
             const {users} = response.data
+            console.log(response.data,'++++++++++++++++++++++check user count');
             setCountOfUser(users);
         }).catch((error) => {
             console.error("An error occured during fetch data", error);
@@ -24,6 +25,8 @@ function AdminHomePage() {
         setManageState(false)
         axios.get(`${AdminDashboardUrl}admin/booking_detials/`).then((response) => {
             const {data} = response.data
+
+            console.log(response.data,'===========================>>>>>>>>>>>>..booking daata');
             const {total_price} = data[4]
             data.pop()
             setTotal_prices(total_price)
@@ -41,7 +44,7 @@ function AdminHomePage() {
         <div>
             <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">Admin Dashboard</h1>
 
-
+{/* 
             {countOfUser.length>0 ? (
 
                 <div className="flex flex-wrap justify-between mb-5 mt-5 ml-5 gap-1">
@@ -113,7 +116,7 @@ function AdminHomePage() {
             ) : (
                 <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">Loading ....    </h1>
 
-            )}
+            )} */}
 
 
 
