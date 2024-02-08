@@ -14,8 +14,8 @@ function AdminHomePage() {
 
         setManageState(false)
         axios.get(`${AdminDashboardUrl}admin/usercount/`).then((response) => {
-            const {users} = response.data
-            console.log(response.data,'++++++++++++++++++++++check user count');
+            const { users } = response.data
+            // console.log(response.data, '++++++++++++++++++++++check user count');
             setCountOfUser(users);
         }).catch((error) => {
             console.error("An error occured during fetch data", error);
@@ -24,10 +24,10 @@ function AdminHomePage() {
 
         setManageState(false)
         axios.get(`${AdminDashboardUrl}admin/booking_detials/`).then((response) => {
-            const {data} = response.data
+            const { data } = response.data
 
-            console.log(response.data,'===========================>>>>>>>>>>>>..booking daata');
-            const {total_price} = data[4]
+            // console.log(response.data, '===========================>>>>>>>>>>>>..booking daata');
+            const { total_price } = data[4]
             data.pop()
             setTotal_prices(total_price)
             setBookingDetails(data)
@@ -36,16 +36,16 @@ function AdminHomePage() {
         })
 
     }, [manageState])
-    
 
-    console.log(countOfUser,'loggggggggggggggggggggggggg');
-    console.log(bookingDetails,'loggggggggggggggggggggggggg9999999999');
+
+    // console.log(countOfUser, 'loggggggggggggggggggggggggg');
+    // console.log(bookingDetails, 'loggggggggggggggggggggggggg9999999999');
     return (
         <div>
             <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">Admin Dashboard</h1>
 
-{/* 
-            {countOfUser.length>0 ? (
+
+            {countOfUser ? countOfUser.length > 0 ? (
 
                 <div className="flex flex-wrap justify-between mb-5 mt-5 ml-5 gap-1">
                     <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-blueGray-800">
@@ -71,12 +71,12 @@ function AdminHomePage() {
             ) : (
                 <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">Loading ....    </h1>
 
-            )}
+            ) : ''}
 
 
 
 
-            {bookingDetails.length>0 ? (
+            {bookingDetails ? bookingDetails.length > 0 ? (
 
                 <div className="flex flex-wrap justify-between mb-5 mt-5 ml-5 gap-1">
                     <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-blueGray-800">
@@ -106,21 +106,21 @@ function AdminHomePage() {
                     <div className="border-[#d9d9d9] p-1 w-full sm:w-[48%] md:w-[30%] lg:w-[23%] text-white h-[9rem] shadow-md shadow-blue-gray-200 rounded-lg bg-blueGray-800">
                         <div className="flex flex-col items-center">
                             <Typography className='font-prompt mt-2' variant="h5">Total Revenue</Typography>
-                            {total_prices && (  
+                            {total_prices && (
                                 <Typography variant="h2">₹{total_prices}</Typography>
                             )}
                         </div>
                     </div>
-             
+
                 </div>
             ) : (
                 <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">Loading ....    </h1>
 
-            )} */}
+            ) : ''}
 
 
 
-         
+
         </div>
 
     )
