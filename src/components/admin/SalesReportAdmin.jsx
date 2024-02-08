@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Card, Typography, ListItemPrefix, Button } from "@material-tailwind/react";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
-import { AdminDashboardUrl } from '../../constants/constants';
+import { DashboardUrl } from '../../constants/constants';
 import Calendar from 'react-calendar';
 import { Dialog, DialogHeader, DialogBody, DialogFooter, } from "@material-tailwind/react";
 
@@ -18,7 +18,7 @@ function SalesReportAdmin() {
 
 
     // useEffect(() => {
-    //     axios.get(`${AdminDashboardUrl}sales_report/?start_date=2024-02-02&end_date=2024-02-06`).then((response) => {
+    //     axios.get(`${DashboardUrl}sales_report/?start_date=2024-02-02&end_date=2024-02-06`).then((response) => {
     //         console.log(response.data, '=================>>>>>>>>>>>>check data');
     //         if (response.data) {
     //             let value = 0
@@ -43,7 +43,7 @@ function SalesReportAdmin() {
 
 
     const generateReport = () => {
-        axios.get(`${AdminDashboardUrl}sales_report/?start_date=${dateStart}&end_date=${dateEnd}`).then((response) => {
+        axios.get(`${DashboardUrl}sales_report/?start_date=${dateStart}&end_date=${dateEnd}`).then((response) => {
             console.log(response.data, '=================>>>>>>>>>>>>check data');
             if (response.data) {
                 let value = 0

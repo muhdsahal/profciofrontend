@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Typography from '@mui/material/Typography';
-import { AdminDashboardUrl } from "../../constants/constants";
+import { DashboardUrl } from "../../constants/constants";
 import axios from "axios";
 import Loader from "../Loading/Loading";
 function AdminHomePage() {
@@ -13,7 +13,7 @@ function AdminHomePage() {
     useEffect(() => {
 
         setManageState(false)
-        axios.get(`${AdminDashboardUrl}admin/usercount/`).then((response) => {
+        axios.get(`${DashboardUrl}admin/usercount/`).then((response) => {
             const { users } = response.data
             // console.log(response.data, '++++++++++++++++++++++check user count');
             setCountOfUser(users);
@@ -23,12 +23,11 @@ function AdminHomePage() {
 
 
         setManageState(false)
-        axios.get(`${AdminDashboardUrl}admin/booking_detials/`).then((response) => {
+        axios.get(`${DashboardUrl}admin/booking_detials/`).then((response) => {
             const { data } = response.data
 
             // console.log(response.data, '===========================>>>>>>>>>>>>..booking daata');
-            // const { total_price } = data[4]
-            const total_price =456
+            const { total_price } = data[4]
             data.pop()
             setTotal_prices(total_price)
             setBookingDetails(data)

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { AdminDashboardUrl } from "../../constants/constants";
+import { DashboardUrl } from "../../constants/constants";
 import { jwtDecode } from "jwt-decode";
 import { Typography } from "@material-tailwind/react";
 import Loader from "../Loading/Loading";
@@ -15,7 +15,7 @@ function EmployeeHomePage() {
     const [employeeReport, setEmployeeReport] = useState(null)
 
     useEffect(() => {
-        axios.get(`${AdminDashboardUrl}booking_report_emp/${userId}`)
+        axios.get(`${DashboardUrl}booking_report_emp/${userId}`)
             .then((response) => {
                 const responseData = response.data
                 setEmployeeReport(responseData)

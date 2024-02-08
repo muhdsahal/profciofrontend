@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Card, Typography, Button } from "@material-tailwind/react";
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
-import { AdminDashboardUrl } from '../../constants/constants';
+import { DashboardUrl } from '../../constants/constants';
 import { jwtDecode } from 'jwt-decode';
 
 function SalesReport() {
@@ -49,7 +49,7 @@ function SalesReport() {
                 end_date = dateEnd
             }
         }
-        axios.get(`${AdminDashboardUrl}sales_report/${userId}/?start_date=${start_date}&end_date=${end_date}&booking_status=${status}`).then((response) => {
+        axios.get(`${DashboardUrl}sales_report/${userId}/?start_date=${start_date}&end_date=${end_date}&booking_status=${status}`).then((response) => {
 
             if (response.data) {
                 setSalesData(response.data)
@@ -105,7 +105,7 @@ function SalesReport() {
                 end_date = dateEnd
             }
         }
-        axios.get(`${AdminDashboardUrl}sales-report-pdf/${userId}/?start_date=${start_date}&end_date=${end_date}&booking_status=${status}`, { responseType: 'arraybuffer' })
+        axios.get(`${DashboardUrl}sales-report-pdf/${userId}/?start_date=${start_date}&end_date=${end_date}&booking_status=${status}`, { responseType: 'arraybuffer' })
             .then((response) => {
                 downloadPdf(response.data);
                 console.log(response, '>>>>>>>>>>>>>>>>>.......');
