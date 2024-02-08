@@ -127,7 +127,7 @@ function SalesReport() {
     return (
         <div>
 
-            {/* <h1 className='text-5xl  text-center mb-4 text-black font-roboto-mono'>Sales Report</h1>
+            <h1 className='text-5xl  text-center mb-4 text-black font-roboto-mono'>Sales Report</h1>
             <div className=' flex gap-5 justify-center'>
                 <label onClick={handleOpen} >From</label>
                 <input type="text" value={dateStart} onChange={(e) => setDateStart(e.target.value)} placeholder='YYYY-MM-DD' className='border-[1px] w-40 h-12 text-start p-2 text-black border-[#c3c3c4] rounded-md font-prompt-normal' />
@@ -221,7 +221,7 @@ function SalesReport() {
                                 </th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-blue-gray-200">
+                        {/* <tbody className="bg-white divide-y divide-blue-gray-200">
                             {salesData ? (
                                 salesData.map((sales, index) => (
 
@@ -247,21 +247,20 @@ function SalesReport() {
                                     <td colSpan="7" className="px-4 py-4 text-sm text-blue-gray-500">No sales data available</td>
                                 </tr>
                             )}
-                        </tbody>
+                        </tbody> */}
                     </table>
                     <div className='flex justify-between text-2xl font-prompt-normal mt-3 mb-3'>
                         <div className='ml-5'>
                             Total Amount
                         </div>
                         <div className='mr-10'>
-                            ₹{totalAmountValue}
+                            {/* ₹{totalAmountValue} */}
                         </div>
                     </div>
                 </Card>
 
                 <ToastContainer />
-            </div> */}
-            lotta
+            </div>
         </div>
     )
 }
