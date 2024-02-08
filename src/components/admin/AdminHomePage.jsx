@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Chart from 'react-apexcharts'
 import { AdminDashboardUrl } from "../../constants/constants";
 import axios from "axios";
 import Loader from "../Loading/Loading";
@@ -65,7 +59,8 @@ function AdminHomePage() {
 
                 </div>
             ) : (
-                <Loader />
+                <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">Loading ....    </h1>
+
             )}
 
 
@@ -109,7 +104,8 @@ function AdminHomePage() {
              
                 </div>
             ) : (
-                <Loader />
+                <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">Loading ....    </h1>
+
             )}
 
 

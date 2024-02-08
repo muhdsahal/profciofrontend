@@ -25,7 +25,7 @@ function EmployeeHomePage() {
 
 
     }, [])
-    console.log(employeeReport, 'kkkkkkkkkkkkkkkk');
+    
     return (
         <div>
             {/* <h1 className='flex text-center justify-center font-roboto-mono text-black'></h1> */}
