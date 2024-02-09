@@ -31,7 +31,7 @@ function UserProtected(){
 
     socket.onclose = (event) => {
       console.log("WebSocket connection closed:", event);
-    };
+    }; 
 
     // Function to show a notification
     const showNotification = (message) => {
