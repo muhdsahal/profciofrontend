@@ -5,6 +5,11 @@
 body {
    overflow-x: hidden; 
 }
+.custom-overlay {
+  background-color: rgba(0, 0, 0, 0.5) !important; /* Adjust transparency as needed */
+}
+
+
 
 :root {
   --gradient-shadow-two: linear-gradient(300deg, #68d391, #3dd073, #3458db,rgba(60, 61, 60, 0.525),rgb(211, 229, 45),#68d391, #35b26f, #193c95);

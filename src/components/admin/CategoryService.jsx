@@ -21,7 +21,6 @@ function CategoryService() {
   const [editCategoryId, setEditCategoryId] = useState('')
   const [manageState, setManageState] = useState(false)
 
-
   useEffect(() => {
     setManageState(false)
 
@@ -150,7 +149,7 @@ function CategoryService() {
   };
   return (
     <div className="flex flex-col  items-center justify-center">
-<h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">Category</h1>
+      <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">Category</h1>
 
       <Card className="my-4 mx-4 overflow-x-auto">
         <div>
@@ -161,6 +160,7 @@ function CategoryService() {
           >
             Create Category
           </Button>
+
         </div>
       </Card>
       <Card className="h-full w-full ">
@@ -245,47 +245,48 @@ function CategoryService() {
         </table>
       </Card>
 
+
       <Dialog
         open={open}
-        onClose={handleOpenModal}
-        aria-labelledby="form-dialog-title"
-        maxWidth="xl"
-
-        modalStyle={{
-          overlay: {
-            backgroundColor: 'rgba(44, 44, 44, 0.8)', // Change the color here
-          },
+        size="xs"
+        handler={handleOpenModal}
+        animate={{
+          mount: { scale: 1, y: 0 },
+          unmount: { scale: 1, y: -100 },
         }}
+        className="bg-transparent shadow-none rounded-sm"
+        overlayClassName="custom-overlay"
+       
       >
         <Card>
-          
-            <Typography variant="h3" color="blue">Create Service</Typography>
+
+          <Typography variant="h3" color="blue">Create Service</Typography>
           <CardBody>
-          
-              <Input
-                type="text"
-                color="lightBlue"
-                placeholder="Name"
-                value={categoryName}
-                onChange={(e) => setCategoryName(e.target.value)}
-              />
-            
+
+            <Input
+              type="text"
+              color="lightBlue"
+              placeholder="Name"
+              value={categoryName}
+              onChange={(e) => setCategoryName(e.target.value)}
+            />
+
           </CardBody>
-          <CardFooter className="pt-0">
-            
-              <Button style={buttonStyle}
-                fullWidth
-                onClick={CreateCategory}
-              >
-                Create
-              </Button>
-              <Button style={cancelButton}
-                fullWidth
-                onClick={handleOpenModal}
-              >
-                Cancel
-              </Button>
-            
+          <CardFooter className="pt-0 flex  gap-2">
+
+            <Button style={buttonStyle}
+              fullWidth
+              onClick={CreateCategory}
+            >
+              Create
+            </Button>
+            <Button style={cancelButton}
+              fullWidth
+              onClick={handleOpenModal}
+            >
+              Cancel
+            </Button>
+
           </CardFooter>
         </Card>
       </Dialog>
@@ -298,19 +299,19 @@ function CategoryService() {
         maxWidth="xl"
       >
         <Card >
-            <Typography variant="h4" color="blue">
-              Edit Service
-            </Typography>
-            <CardBody>
-              Name:
-              <Input
-                type="text"
-                name="name"
-                value={categoryName}
-                onChange={(e) => setCategoryName(e.target.value)}
-                className="w-full"
-              />
-            </CardBody>
+          <Typography variant="h4" color="blue">
+            Edit Service
+          </Typography>
+          <CardBody>
+            Name:
+            <Input
+              type="text"
+              name="name"
+              value={categoryName}
+              onChange={(e) => setCategoryName(e.target.value)}
+              className="w-full"
+            />
+          </CardBody>
           <CardFooter className="pt-0 flex  gap-2">
             <Button style={buttonStyle}
               onClick={CategoryEdit} fullWidth>
@@ -323,6 +324,7 @@ function CategoryService() {
           </CardFooter>
         </Card>
       </Dialog>
+
       <ToastContainer />
     </div>
 

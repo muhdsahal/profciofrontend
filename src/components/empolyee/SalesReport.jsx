@@ -105,6 +105,7 @@ function SalesReport() {
                 end_date = dateEnd
             }
         }
+        
         axios.get(`${DashboardUrl}sales_report_pdf/${userId}/?start_date=${start_date}&end_date=${end_date}&booking_status=${status}`, { responseType: 'arraybuffer' })
             .then((response) => {
                 downloadPdf(response.data);
