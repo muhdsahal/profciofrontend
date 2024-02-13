@@ -190,18 +190,18 @@ const handleSubmit = async (e) => {
   return(
       
         
-        <div className="flex items-center justify-center  text-black">
+        <div className="flex items-center justify-center text-white h-screen bg-[#020313]">
   
     
           {loading && <Loader />}
     
-          <Card className="text-center pt-8 pb-2 bg-transparent shadow-none">
+          <Card className="text-center  bg-transparent border-">
           
-            <Typography variant="h4" color="black">
+            <Typography variant="h3" color="white">
               Sign Up
             </Typography>
     
-            <Typography color="black" className="mt-1 font-normal">
+            <Typography color="white" className="mt-1 font-normal">
               Welcome To Profcio ! Enter your details to register
               <div className="flex justify-center items-center screen" >
               <img  src={logo} alt="logo" width="130" height="150" className="w-35 h-20" />
@@ -209,15 +209,16 @@ const handleSubmit = async (e) => {
             </Typography>
             
     
-            <form className=" w-80 max-w-screen-lg sm:w-96">
+            <form className=" w-80  sm:w-96">
               <div className="mb-1 flex flex-col gap-6">
                 <Input
                   size="lg"
-                  placeholder="Enter your username"
+                  label=" Username"
                   value={formData.username}
                   name="username"
+                  color="white"
                   onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-                  className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                  className="!border-t-blue-gray-200 focus:!border-t-gray-900 text-white bg-white"
                   labelProps={{
                     className: 'before:content-none after:content-none',
                   }}
@@ -225,11 +226,12 @@ const handleSubmit = async (e) => {
     
                 <Input
                   size="lg"
-                  placeholder="Enter your email"
+                  label=" Email"
                   value={formData.email}
                   name="email"
+                  color="white"
                   onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-                  className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                  className="!border-t-blue-gray-200 focus:!border-t-gray-900 text-white"
                   labelProps={{
                     className: 'before:content-none after:content-none',
                   }}
@@ -237,12 +239,13 @@ const handleSubmit = async (e) => {
     
                 <Input
                   size="lg"
-                  placeholder="Enter your password"
+                  label=" Password"
                   type="password"
                   value={formData.password}
                   name="password"
+                  color="white"
                   onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-                  className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                  className="!border-t-blue-gray-200 focus:!border-t-gray-900 text-white"
                   labelProps={{
                     className: 'before:content-none after:content-none',
                   }}
@@ -250,12 +253,13 @@ const handleSubmit = async (e) => {
     
                 <Input
                   size="lg"
-                  placeholder="Enter your confirm password"
+                  label=" Confirm password"
                   type="password"
                   value={other.conf_Password}
                   name="conf_Password"
+                  color="white"
                   onChange={(e) => setOther({ ...other, [e.target.name]: e.target.value })}
-                  className="!border-t-blue-gray-200 focus:!border-t-gray-900"
+                  className="!border-t-blue-gray-200 focus:!border-t-gray-900 text-white"
                   labelProps={{
                     className: 'before:content-none after:content-none',
                   }}
@@ -291,7 +295,7 @@ const handleSubmit = async (e) => {
     
               <Typography color="black" className="mt-4 text-center font-normal">
                 Already have an account?{' '}
-                <Link color="black" to="/login">Login</Link>
+                <Link color="white" to="/login">Login</Link>
               </Typography>
             </form>
           </Card>
