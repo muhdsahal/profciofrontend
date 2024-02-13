@@ -204,10 +204,10 @@ function LoginForm(){
     
 
     return (
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center justify-center h-screen bg-[#020313]">
       {loading && <Loader />}
-      <div className="flex flex-col md:flex-row md:max-w-screen-xl">
-        {/* Left side (image) */}
+      <div className="flex flex-col border-rounded-sm md:flex-row md:max-w-screen-xl">
+        {/* Left side (image)
         <div className="order-2 md:order-1 md:w-1/2">
           <img src={login_img} alt="Login" className="w-full h-auto" />
         </div>
@@ -215,14 +215,14 @@ function LoginForm(){
         <br />
         <br />
         <br />
-        <br />
-        <div className="order-1 md:order-2 md:w-1/2">
+        <br /> */}
+        <div className="order-1 md:order-2">
           <Card className="w-full md:max-w-md mx-auto">
             <div className="flex justify-center items-center mt-4">
               <img src={logo} alt="logo" width="130" height="150" className="w-35 h-20" />
             </div>
             <CardBody className="flex flex-col gap-4 mt-4">
-              <Typography style={{ fontWeight: '500' }}>User Login</Typography>
+              <h3 className="flex justify-center font-roboto-mono">User Login</h3>
               <Input
                 size="lg"
                 placeholder="Enter Your Email"
