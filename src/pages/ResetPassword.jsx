@@ -11,7 +11,7 @@ import axios from 'axios';
 import {toast, ToastContainer } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { base_url } from '../constants/constants';
-
+import logo from "../assets/profcio__All.png"
 function ResetPassword() {
   const [newPassword, setNewPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
@@ -72,34 +72,32 @@ const validatePassword = (password) => {
     const data1 = urlParts[urlParts.length - 2];
     const data2 = urlParts[urlParts.length - 1];
 
-    console.log("Data from the second-to-last position:", data1);
-    console.log("Data from the last position:", data2);
   }, []); // Run this effect only once when the component mounts
 
   return (
     <>
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center justify-center h-screen bg-[#020313]">
         <Card className="w-96">
           <CardBody className="flex flex-col gap-4">
             <>
-              <Typography style={{ fontWeight: "500" }}>
-                Reset Password{" "}
-              </Typography>
+            <div className="flex justify-center items-center screen" >
+              <img src={logo} alt="logo" width="130" height="150" className="w-35 h-20" />
+            </div>
+            <h3 className="flex justify-center font-roboto-mono">Forgot Password</h3>
+
 
               <Input
-                placeholder="Enter new password"
+                label="Enter new password"
                 type="password"
                 size="lg"
-                label="newPassword"
                 name="newPassword"
                 onChange={(e) => setNewPassword(e.target.value)}
               />
 
               <Input
-                placeholder="Confirm new password"
+                label="Confirm new password"
                 type="password"
                 size="lg"
-                label="confPassword"
                 name="confPassword"
                 onChange={(e) => setConfPassword(e.target.value)}
               />
@@ -110,7 +108,7 @@ const validatePassword = (password) => {
               variant="White"
               fullWidth
               onClick={handlePasswordResetConfirmation}
-              className="bg-rose-500 text-gray-700"
+              style={{backgroundColor:"lightseagreen"}}
             >
               Submit
             </Button>

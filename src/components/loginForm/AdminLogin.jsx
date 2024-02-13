@@ -90,27 +90,27 @@ const handleLogin = async (e) => {
   }
 };
     return (
-      <div className="flex items-center justify-center h-screen overflow-x" >
+      <div className="flex items-center justify-center h-screen bg-[#020313]" >
         {loading && <Loader />}
         <Card className="w-96"  >
           <div className="flex justify-center items-center screen" >
             <img  src={logo} alt="logo" width="130" height="150" className="w-35 h-20" />
           </div>
           <CardBody className="flex flex-col gap-4">
-          <Typography style={{ fontWeight: '500' }}>Admin Login</Typography>
+          <h3 className="flex justify-center font-roboto-mono">Admin Login</h3>
+
           <Input
               size="lg"
-              placeholder="Enter Your Email"
+              label="Enter Your Email"
               value={user.email}
               name="email"
               type="email"
               onChange={(e) => setUser({ ...user, [e.target.name]: e.target.value })}
             />
             <Input
-              placeholder="Enter your Password"
+              label="Enter your Password"
               type="password"
               size="lg"
-              // label="Password"
               name="password"
               value={user.password}
               onChange={(e) => setUser({ ...user, [e.target.name]: e.target.value })}

@@ -217,14 +217,14 @@ function LoginForm(){
               <h3 className="flex justify-center font-roboto-mono">User Login</h3>
               <Input
                 size="lg"
-                placeholder="Enter Your Email"
+                label="Enter Your Email"
                 value={user.email}
                 name="email"
                 type="email"
                 onChange={(e) => setUser({ ...user, [e.target.name]: e.target.value })}
               />
               <Input
-                placeholder="Enter your Password"
+                label="Enter your Password"
                 type="password"
                 size="lg"
                 name="password"

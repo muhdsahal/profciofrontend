@@ -187,21 +187,18 @@ const handleSubmit = async (e) => {
   }
   }
 
-  return(
-      
-        
+  return(  
         <div className="flex items-center justify-center text-white h-screen bg-[#020313]">
   
     
           {loading && <Loader />}
     
-          <Card className="text-center  bg-transparent border-">
+          <Card className="text-center pt-3 pb-5 pl-5 pr-5  border">
           
-            <Typography variant="h3" color="white">
-              Sign Up
-            </Typography>
+          <h3 className="flex justify-center font-roboto-mono">User Signup</h3>
+
     
-            <Typography color="white" className="mt-1 font-normal">
+            <Typography color="black" className="mt-1 font-normal">
               Welcome To Profcio ! Enter your details to register
               <div className="flex justify-center items-center screen" >
               <img  src={logo} alt="logo" width="130" height="150" className="w-35 h-20" />
@@ -216,7 +213,6 @@ const handleSubmit = async (e) => {
                   label=" Username"
                   value={formData.username}
                   name="username"
-                  color="white"
                   onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900 text-white bg-white"
                   labelProps={{
@@ -229,7 +225,6 @@ const handleSubmit = async (e) => {
                   label=" Email"
                   value={formData.email}
                   name="email"
-                  color="white"
                   onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900 text-white"
                   labelProps={{
@@ -243,7 +238,6 @@ const handleSubmit = async (e) => {
                   type="password"
                   value={formData.password}
                   name="password"
-                  color="white"
                   onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900 text-white"
                   labelProps={{
@@ -257,7 +251,6 @@ const handleSubmit = async (e) => {
                   type="password"
                   value={other.conf_Password}
                   name="conf_Password"
-                  color="white"
                   onChange={(e) => setOther({ ...other, [e.target.name]: e.target.value })}
                   className="!border-t-blue-gray-200 focus:!border-t-gray-900 text-white"
                   labelProps={{
