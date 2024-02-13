@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BookingEmployeeSide, BookingStatusUpdate, base_url } from "../../constants/constants";
 import { jwtDecode } from "jwt-decode";
-import {Card,Typography,ListItemPrefix} from "@material-tailwind/react";
-import {ToastContainer,toast} from 'react-toastify';
+import { Card, Typography, ListItemPrefix } from "@material-tailwind/react";
+import { ToastContainer, toast } from 'react-toastify';
 import blankImage from '../../assets/blankprofile.png'
 function Customer() {
     const token = localStorage.getItem('token')
@@ -18,7 +18,8 @@ function Customer() {
         axios.get(`${BookingEmployeeSide}${userId}`)
             .then((response) => {
                 const responseData = response.data
-                setCustomer(responseData)
+                const sortedCustomers = responseData.sort((a, b) => a.id - b.id);
+                setCustomer(sortedCustomers)
             })
             .catch((error) => {
                 console.error("an error occured data fectcing..", error);
@@ -26,15 +27,19 @@ function Customer() {
             })
     }, [ManagePage])
 
-    const customerData = (userId) => {
-        if (customer.length !== 0) {
+    const uniqueCustomers = customer.filter((cust, index, self) =>
+        index === self.findIndex((c) => c.userDetails.id === cust.userDetails.id)
+    );
+   
+    const customerData = () => {
+        if (uniqueCustomers.length !== 0) {
             return <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">My Customers</h1>
 
         } else {
             return <h1 className="text-center text-black  text-5xl  font-roboto-mono mb-4">No Customer Found</h1>
 
         }
-    }   
+    }
 
 
     return (<>
@@ -59,7 +64,7 @@ function Customer() {
                                     color="blue-gray"
                                     className="font-prompt-normal leading-none opacity-70"
                                 >
-                                   
+
                                     Profile photo
                                 </Typography>
                             </th>
@@ -69,7 +74,7 @@ function Customer() {
                                     color="blue-gray"
                                     className="font-prompt-normal leading-none opacity-70"
                                 >
-                                   User  
+                                    User
                                 </Typography>
                             </th>
 
@@ -96,7 +101,7 @@ function Customer() {
                         </tr>
                     </thead>
                     <tbody>
-                        {customer.map((cust) => {
+                        {uniqueCustomers.map((cust) => {
 
                             const classes = "p-4 border-b border-blue-gray-50";
 
@@ -112,13 +117,13 @@ function Customer() {
                                         </Typography>
                                     </td>
                                     <td>
-                                    
-                                    <ListItemPrefix >
-                                        {cust.userDetails.profile_photo ? (
-                                            <img className='rounded-full w-12' src={`${base_url}${cust.userDetails.profile_photo}`} />
-                                        ) : (
-                                            <img alt="img" src={blankImage} className='rounded-full w-12' />
-                                        )}
+
+                                        <ListItemPrefix >
+                                            {cust.userDetails.profile_photo ? (
+                                                <img className='rounded-full w-12' src={`${base_url}${cust.userDetails.profile_photo}`} />
+                                            ) : (
+                                                <img alt="img" src={blankImage} className='rounded-full w-12' />
+                                            )}
                                         </ListItemPrefix>
                                     </td>
                                     <td className={classes}>
@@ -146,7 +151,7 @@ function Customer() {
                                             color="blue-gray"
                                             className="font-prompt-normal"
                                         >
-                                             {cust.userDetails.phone_number}
+                                            {cust.userDetails.phone_number}
                                         </Typography>
                                     </td>
                                 </tr>

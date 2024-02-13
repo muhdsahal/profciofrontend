@@ -49,7 +49,9 @@ function SalesReport() {
         axios.get(`${DashboardUrl}sales_report_admin/?start_date=${start_date}&end_date=${end_date}&booking_status=${status}`).then((response) => {
 
             if (response.data) {
-                setSalesData(response.data)
+                const responseData = response.data
+                const sortedData = responseData.sort((a, b) => a.id - b.id);
+                setSalesData(sortedData)
                 let value = 0
                 const data = response.data
                 for (let sales = 0; sales < data.length; sales++) {

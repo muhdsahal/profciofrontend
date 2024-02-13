@@ -17,7 +17,8 @@ function BookingListAdmin() {
             .get(BookingListUrl)
             .then((response) => {
                 const responseData = response.data;
-                setBookingList(responseData)
+                const sortedBookings = responseData.sort((a, b) => a.id - b.id);
+                setBookingList(sortedBookings)
                 setLaoding(false)
             })
             .catch((error) => {

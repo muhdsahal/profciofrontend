@@ -26,7 +26,8 @@ function BookingListEmployee() {
         axios.get(`${BookingEmployeeSide}${userId}`)
             .then((response) => {
                 const responseData = response.data
-                setBookingList(responseData)
+                const sortedBookings = responseData.sort((a, b) => a.id - b.id);
+                setBookingList(sortedBookings)
             })
             .catch((error) => {
                 console.error("an error occured data fectcing..", error);
