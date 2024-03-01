@@ -5,6 +5,7 @@ import FooterPage from '../Navbar&Footer/FooterPage'
 import ServiceListPage from './ServiceListPage';
 import { Button } from "@material-tailwind/react";
 import { toast, ToastContainer } from "react-toastify";
+import { Typography } from '@mui/material';
 
 
 
@@ -24,7 +25,7 @@ function Home() {
 
           </h1>
           <div className="flex justify-center">
-            <h2
+            <Typography
               className="w-[800px] mt-10 text-center text-white  font-roboto-mono ">
               Professional services
               for your
@@ -34,7 +35,7 @@ function Home() {
               <Link to={"/employeelist"}>
                 <Button className="btn-gradiant bg-gradient-to-r from-light-green-400 via-emerald-400 to-blue-600 mt-10">Click here</Button>
               </Link>
-            </h2>
+            </Typography>
           </div>
         </div>
         
