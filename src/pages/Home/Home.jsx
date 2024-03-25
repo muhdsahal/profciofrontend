@@ -26,7 +26,7 @@ function Home() {
           </h1>
           <div className="flex justify-center">
             <Typography
-              className="w-[800px] mt-10 text-center text-white  font-roboto-mono ">
+              className="w-[800px]  text-[160px] mt-10 text-center text-white  font-roboto-mono ">
               Professional services
               for your
               <br />Homes and commercial properties <br />
