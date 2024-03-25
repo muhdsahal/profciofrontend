@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Carousel } from "@material-tailwind/react";
-import { ServiceCatergoryURL, ServiceListURL, base_url } from '../../constants/constants';
-import { TypeAnimation } from 'react-type-animation';
+import {  ServiceListURL } from '../../constants/constants';
 
 const ServiceList = () => {
   const [services, setServices] = useState([]);
-  const [category, setCategory] = useState([]);
 
 
   useEffect(() => {
-    // axios.get(ServiceCatergoryURL)
-    //   .then(response => {
-    //     setCategory(response.data);
-    //   })
-    //   .catch(error => {
-    //     console.error('Error fetching category options:', error);
-    //   });
 
     axios.get(ServiceListURL)
       .then(response => {
@@ -35,7 +25,7 @@ const ServiceList = () => {
     <div  style={{ backgroundColor: 'black' }}>
        
       <h1
-        className="flex  justify-center text-center font-roboto-mono text-white"
+        className="flex  justify-center text-center font-roboto-mono text-white leading-[50px] text-[70px] md:text-[50px]"
       >
         Serving Excellence, One Click at a Time! Discover the Difference in Our Range of Services
       </h1>
